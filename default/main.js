@@ -4,7 +4,6 @@ var aiModule = require('module.ai');
 var clearModule = require('module.clear');
 var marketModule = require('module.market');
 var colonyLasika = require('colony.lasika');
-var colonyGyenos = require('colony.gyenos');
 
 // Any modules that you use that modify the game's prototypes should be require'd
 // before you require the profiler.
