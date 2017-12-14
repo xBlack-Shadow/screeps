@@ -16,6 +16,8 @@ var log = {
     	ramparts.forEach(function x(element, index, array) {
             points.push(element.hits);
         })
+
+		Memory.harvester = harvesters.length;
 	    
 	    console.log('Harvester: ' + harvesters.length +
 	            ' Builder: ' + builders.length +
