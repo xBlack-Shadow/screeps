@@ -41,7 +41,7 @@ var lasika = {
                     }   
                 }
             }else{
-                if(builders.length < 2) {
+                if(builders.length < 0) {
                     if(myRoom.energyAvailable < 550){
                         spawnModule.spawnCreep(spawn, 'builder');
                     }else{
@@ -52,7 +52,7 @@ var lasika = {
                         }   
                     }
                 }else{
-                    if(fixers.length < 3) {
+                    if(fixers.length < 2) {
                         spawnModule.spawnMedCreep(spawn, 'fixer');
                     }else{
                         if(roadsters.length < 1) {
@@ -68,7 +68,7 @@ var lasika = {
                                         spawnModule.spawnDefScout(spawn, 'scout');
                                     }
                                 }else{
-                                    if(outers.length < 2) {
+                                    if(outers.length < 0) {
                                         spawnModule.spawnBigCreep(spawn, 'out');
                                     }else{
                                         if(claimboys.lenght < 0){

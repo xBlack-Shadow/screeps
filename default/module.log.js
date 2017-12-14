@@ -17,7 +17,7 @@ var log = {
             points.push(element.hits);
         })
 
-		Memory.harvester = harvesters.length;
+		Memory.harvester = harvesters.length; //TODO: Log umbauen. Anzahl der Einheiten in der Memory speichern und anzeigen
 	    
 	    console.log('Harvester: ' + harvesters.length +
 	            ' Builder: ' + builders.length +
