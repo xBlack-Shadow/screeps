@@ -8,6 +8,7 @@
  */
 
 //TODO: Namensgebung irgendwie randomisieren. spawncreep nimmt kein undefined mehr an.
+//TODO: Fehlerkennung mit einem SwitchCase bauen.
 var spawn = {
 
 
