@@ -6,7 +6,8 @@
  * var mod = require('module.spawn');
  * mod.thing == 'a thing'; // true
  */
- 
+
+//TODO: Namensgebung irgendwie randomisieren. spawncreep nimmt kein undefined mehr an.
 var spawn = {
     bodyCost: function(body) {
         var cost = 0;
