@@ -18,7 +18,7 @@ var spawn = {
     
     // Cost: 300
     spawnCreep: function(spawn, objective) {
-        var newName = spawn.createCreep([WORK,WORK,CARRY,MOVE], undefined, {role: objective});
+        var newName = spawn.spawnCreep([WORK,WORK,CARRY,MOVE], undefined, {role: objective});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -32,7 +32,7 @@ var spawn = {
     
     // Cost: 550
     spawnMedCreep: function(spawn, objective){
-        var newName = spawn.createCreep([WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE], undefined, {role: objective});
+        var newName = spawn.spawnCreep([WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE], undefined, {role: objective});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -46,7 +46,7 @@ var spawn = {
     
     // Cost: 1000
     spawnBigCreep: function(spawn, objective) {
-        var newName = spawn.createCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], undefined, {role: objective});
+        var newName = spawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], undefined, {role: objective});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -60,7 +60,7 @@ var spawn = {
     
     // Cost: 260
     spawnProtectron: function(spawn, objective) {
-        var newName = spawn.createCreep([ATTACK,ATTACK,MOVE,MOVE], undefined, {role: objective});
+        var newName = spawn.spawnCreep([ATTACK,ATTACK,MOVE,MOVE], undefined, {role: objective});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -75,7 +75,7 @@ var spawn = {
     
     
     spawnScoutCreep: function(spawn, objective) {
-        var newName = spawn.createCreep([ATTACK,ATTACK,ATTACK,ATTACK,TOUGH,TOUGH,MOVE,MOVE], undefined, {role: objective});
+        var newName = spawn.spawnCreep([ATTACK,ATTACK,ATTACK,ATTACK,TOUGH,TOUGH,MOVE,MOVE], undefined, {role: objective});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -88,7 +88,7 @@ var spawn = {
     },
     
     spawnOutCreep: function(spawn, objective){
-        var newName = spawn.createCreep([MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,CARRY,CARRY], undefined, {role: objective, target: '5793fc87bc81495b7d8c885e', sources:'577b92b60f9d51615fa46f87'});
+        var newName = spawn.spawnCreep([MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,CARRY,CARRY], undefined, {role: objective, target: '5793fc87bc81495b7d8c885e', sources:'577b92b60f9d51615fa46f87'});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -103,7 +103,7 @@ var spawn = {
     },
     
     spawnDefScout: function(spawn, objective){
-        var newName = spawn.createCreep([MOVE,MOVE,MOVE,MOVE,MOVE,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK], undefined, {role: objective});
+        var newName = spawn.spawnCreep([MOVE,MOVE,MOVE,MOVE,MOVE,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK], undefined, {role: objective});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -116,7 +116,7 @@ var spawn = {
     },
     
     spawnClaimCreep: function(spawn, objective) {
-        var newName = spawn.createCreep([CLAIM,MOVE], undefined, {role: objective});
+        var newName = spawn.spawnCreep([CLAIM,MOVE], undefined, {role: objective});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
