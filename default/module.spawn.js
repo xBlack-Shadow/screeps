@@ -9,6 +9,7 @@
 
 //TODO: Namensgebung irgendwie randomisieren. spawncreep nimmt kein undefined mehr an.
 //TODO: Fehlerkennung mit einem SwitchCase bauen.
+//TODO: Bevor es überhaupt zu einem Fehlerfall kommt: dryrun
 var spawn = {
 
 
