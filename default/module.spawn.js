@@ -9,6 +9,8 @@
 
 //TODO: Namensgebung irgendwie randomisieren. spawncreep nimmt kein undefined mehr an.
 var spawn = {
+
+
     bodyCost: function(body) {
         var cost = 0;
         for (var i = 0; i < body.length; i++) {
@@ -19,7 +21,8 @@ var spawn = {
     
     // Cost: 300
     spawnCreep: function(spawn, objective) {
-        var newName = spawn.spawnCreep([WORK,WORK,CARRY,MOVE], 'biggs', {memory : {role: objective}});
+        var random = Math.floor((Math.random() * 100) + 1);
+        var newName = spawn.spawnCreep([WORK,WORK,CARRY,MOVE], 'scribbles' + random, {memory : {role: objective}});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -33,7 +36,8 @@ var spawn = {
     
     // Cost: 550
     spawnMedCreep: function(spawn, objective){
-        var newName = spawn.spawnCreep([WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE], 'meds', {memory : {role: objective}});
+        var random = Math.floor((Math.random() * 100) + 1);
+        var newName = spawn.spawnCreep([WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE], 'Wedge' + random, {memory : {role: objective}});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -47,7 +51,8 @@ var spawn = {
     
     // Cost: 1000
     spawnBigCreep: function(spawn, objective) {
-        var newName = spawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], 'undefined', {memory : {role: objective}});
+        var random = Math.floor((Math.random() * 100) + 1);
+        var newName = spawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], 'Biggs'  + random, {memory : {role: objective}});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
