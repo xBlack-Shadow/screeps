@@ -18,7 +18,7 @@ var spawn = {
     
     // Cost: 300
     spawnCreep: function(spawn, objective) {
-        var newName = spawn.spawnCreep([WORK,WORK,CARRY,MOVE], undefined, {role: objective});
+        var newName = spawn.spawnCreep([WORK,WORK,CARRY,MOVE], 'biggs', {role: objective});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -32,7 +32,7 @@ var spawn = {
     
     // Cost: 550
     spawnMedCreep: function(spawn, objective){
-        var newName = spawn.spawnCreep([WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE], undefined, {role: objective});
+        var newName = spawn.spawnCreep([WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE], 'meds', {role: objective});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
@@ -46,7 +46,7 @@ var spawn = {
     
     // Cost: 1000
     spawnBigCreep: function(spawn, objective) {
-        var newName = spawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], undefined, {role: objective});
+        var newName = spawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], 'undefined', {role: objective});
         if(newName == -6){
             console.log('Not enought Energy');
         }else{
