@@ -15,7 +15,7 @@
 var spawn = {
     spawnToUse: function(){
         for(const i in Memory.spawns) {
-            let current = Game.getObjectById(Memory.spawns[i].id);
+            let current = Game.getObjectById(Memory.spawns[i]);
             if (current.spawning == null) {
                 return current;
             }
