@@ -13,6 +13,14 @@
 //TODO: Fehlerkennung mit einem SwitchCase bauen.
 //TODO: Bevor es Ã¼berhaupt zu einem Fehlerfall kommt: dryrun
 var spawn = {
+    spawnToUse: function(){
+        for(const i in Memory.spawns) {
+            if (Memory.spawns[i].spawning == null) {
+                console.log(Memory.spawns[i].name + ' is not spawning');
+                return Memory.spawns[i];
+            }
+        }
+    },
 
     bodyCost: function (body) {
         var cost = 0;
@@ -58,7 +66,7 @@ var spawn = {
 
     spawnsCreep: function (spawn, objective, body) {
         let random = Math.floor((Math.random() * 100) + 1);
-        let newName = spawn.spawnCreep(this.getCreepBody(body), 'scribbles' + random, {memory: {role: objective}});
+        let newName = this.spawnToUse().spawnCreep(this.getCreepBody(body), 'scribbles' + random, {memory: {role: objective}});
         if (spawn.spawning) {
             console.log(JSON.stringify(spawn.spawning));
         }
