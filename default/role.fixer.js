@@ -33,11 +33,11 @@
             });
             if(targets.length) {
                 if(creep.repair(targets[0]) === ERR_NOT_IN_RANGE) {
-                    console.log(creep.moveTo(targets[0]));
+                    creep.moveTo(targets[0]);
                 }
             }else{
                 console.log('keine Walls unter 100000000 hits')
-                if(creep.room.controller.level != 8)
+                if(creep.room.controller.level !== 8)
                 {
                     roleUpgrader.run(creep);
                 }
