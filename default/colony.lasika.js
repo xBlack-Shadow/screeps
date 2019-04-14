@@ -42,7 +42,7 @@ var lasika = {
                                     if (outers.length < 1) {
                                         spawnModule.spawnsCreep('out', 'out');
                                     } else {
-                                        if (trader.length < 1) {
+                                        if (trader.length < 0) {
                                             spawnModule.spawnsCreep('trader', 'big');
                                         }
                                         if (claimboys.length < 0) {
