@@ -34,6 +34,10 @@ var spawn = {
                 // Cost: 1000
                 bodyArray = [WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE];
                 break;
+            case 'out':
+                // Cost: 2250
+                bodyArray = [WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE];
+                break;
             default:
                 // Cost: 300
                 bodyArray = [WORK, WORK, CARRY, MOVE];
@@ -44,9 +48,9 @@ var spawn = {
     },
 
 
-    spawnCreep: function (spawn, objective) {
+    spawnCreep: function (spawn, objective, body) {
         var random = Math.floor((Math.random() * 100) + 1);
-        var newName = spawn.spawnCreep(this.getCreepBody(), 'scribbles' + random, {memory: {role: objective}});
+        var newName = spawn.spawnCreep(this.getCreepBody(body), 'scribbles' + random, {memory: {role: objective}});
         if (newName === -6) {
             console.log('Not enought Energy');
         } else {
