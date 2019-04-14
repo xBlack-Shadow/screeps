@@ -1,6 +1,5 @@
 'use strict';
 
-var spawnModule = require('module.spawn');
 var logModule = require('module.log');
 var aiModule = require('module.ai');
 var clearModule = require('module.clear');
@@ -22,7 +21,7 @@ module.exports.loop = function() {
         if(Memory.spawns === undefined){
             let spawns = [];
             for(const i in Game.spawns) {
-                console.log('save' + Game.spawns[i] + ' ID to memory')
+                console.log('save' + Game.spawns[i] + ' ID to memory');
                 spawns.push(Game.spawns[i].id);
             }
             Memory.spawns = spawns;
@@ -44,37 +43,5 @@ module.exports.loop = function() {
         colonyLasika.live();  
         aiModule.defendTowers();
         aiModule.runCreeps();
-    
-    //marketModule.sell();
-    
   });
-}
-/*
-module.exports.loop = function () {
-    
-    
-    
-    
-    
-    logModule.log();
-    
-    switch(Game.time % 10){
-        case 9:
-            clearModule.clearMemory();
-            break;
-        case 0:
-            marketModule.sell();
-            break;
-        
-        default:
-              
-            
-    }
-    //colonyGyenos.live();
-        colonyLasika.live();  
-        aiModule.defendTowers();
-        aiModule.runCreeps();
-    
-    //marketModule.sell();
 };
-*/

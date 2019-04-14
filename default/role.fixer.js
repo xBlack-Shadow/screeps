@@ -36,7 +36,7 @@
                     creep.moveTo(targets[0]);
                 }
             }else{
-                console.log('keine Walls unter 100000000 hits')
+                console.log('keine Walls unter 100000000 hits');
                 if(creep.room.controller.level !== 8)
                 {
                     roleUpgrader.run(creep);

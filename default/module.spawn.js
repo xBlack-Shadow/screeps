@@ -22,14 +22,6 @@ var spawn = {
         }
     },
 
-    bodyCost: function (body) {
-        var cost = 0;
-        for (var i = 0; i < body.length; i++) {
-            cost += BODYPART_COST[body[i]];
-        }
-        return cost
-    },
-
     getCreepBody: function (body) {
         let bodyArray = [];
 

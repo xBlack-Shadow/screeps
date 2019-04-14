@@ -5,7 +5,6 @@ var lasika = {
     live: function () {
         var spawnModule = require('module.spawn');
         var spawn = Game.spawns['Lasika'];
-        var myRoom = Game.spawns['Lasika'].room;
         var lasikaCreeps = spawn.room.find(FIND_MY_CREEPS);
 
         var harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'harvester');
@@ -57,13 +56,7 @@ var lasika = {
                 }
             }
         }
-    },
+    }
+};
 
-    executeSpawn:
-
-        function (spawn, role) {
-            spawnModule.spawnCreep(spawn, role);
-        }
-}
-
-module.exports = lasika
+module.exports = lasika;

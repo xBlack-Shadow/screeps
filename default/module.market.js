@@ -20,7 +20,7 @@ var market = {
             }
         }
     }
-}
+};
 
 
 module.exports = market;

@@ -12,12 +12,7 @@ var log = {
     	var scouts = _.filter(Game.creeps, (creep) => creep.memory.role === 'scout');
     	var outers = _.filter(Game.creeps, (creep) => creep.memory.role === 'out');
     	var claimboys = _.filter(Game.creeps, (creep) => creep.memory.role === 'claim');
-    	var ramparts = _.filter(Game.structures, (structure) => structure.structureType === STRUCTURE_RAMPART);
     	var points = [];
-    	
-    	ramparts.forEach(function x(element, index, array) {
-            points.push(element.hits);
-        })
 
 		Memory.harvester = harvesters.length; //TODO: Log umbauen. Anzahl der Einheiten in der Memory speichern und anzeigen
 	    
@@ -41,6 +36,6 @@ var log = {
 			}
 		});
 	}
-}
+};
 
 module.exports = log;

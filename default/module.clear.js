@@ -9,6 +9,6 @@ var clear = {
             }
         }
     }
-}
+};
 
 module.exports = clear;
