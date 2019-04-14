@@ -20,11 +20,12 @@ module.exports.loop = function() {
         logModule.log();
         
         if(Memory.spawns === undefined){
+            let spawns = [];
             for(const i in Game.spawns) {
                 console.log('save' + Game.spawns[i] + 'to memory')
-                Memory.spawns[] = Game.spawns[i];
+                spawns.push(Game.spawns[i]);
             }
-
+            Memory.spawns = spawns;
         }
     
     switch(Game.time % 10){
