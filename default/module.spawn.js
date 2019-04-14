@@ -19,7 +19,7 @@ var spawn = {
             console.log(JSON.stringify(Memory.spawns[i]));
             if (Memory.spawns[i].spawning == null) {
                 console.log(Memory.spawns[i].name + ' is not spawning');
-                return Memory.spawns[i];
+                return Game.getObjectById(Memory.spawns[i].id);
             }
         }
     },
