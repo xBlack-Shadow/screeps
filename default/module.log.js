@@ -33,6 +33,13 @@ var log = {
 	            ' Energy: '+ Game.spawns['Lasika'].room.energyAvailable + ' / ' +
 	            Game.spawns['Lasika'].room.energyCapacityAvailable + ' |');
         console.log(points);
+
+		for(const i in Memory.spawns) {
+			let current = Game.getObjectById(Memory.spawns[i]);
+			if (current.spawning !== null) {
+				console.log(current.name + ' spawning ' + JSON.stringify(current.spawning));
+			}
+		}
 	}
 }
 
