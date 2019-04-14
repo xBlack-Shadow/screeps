@@ -74,7 +74,7 @@ var spawn = {
         if(spawn !== undefined) {
             switch (spawn.spawnCreep(this.getCreepBody(body), 'test', {dryRun: true})) {
                 case ERR_NOT_ENOUGH_ENERGY:
-                    console.log('Not enought Energy');
+                    console.log('Not enought Energy to spawn ' + objective);
                     break;
                 case ERR_BUSY:
                     console.log(spawn.name + ' running spawn');
