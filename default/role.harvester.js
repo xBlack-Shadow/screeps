@@ -31,7 +31,7 @@ var roleHarvester = {
                 (structure.energy < structure.energyCapacity || structure.storage < structure.storeCapacity);
         }
         });
-            target.push()
+            target.push();
             target.sort();
             /*if (Game.getObjectById('59a5e3340f493b307691227a').store[RESOURCE_ENERGY] < Game.getObjectById('59a5e3340f493b307691227a').storeCapacity / 2) {
                 target.push(Game.getObjectById('59a5e3340f493b307691227a'));
