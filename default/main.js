@@ -21,7 +21,7 @@ module.exports.loop = function() {
         
         if(Memory.spawns === undefined){
             for(const i in Game.spawns) {
-                Memory.spawns = Game.spawns[i];
+                Memory.spawns[] = Game.spawns[i];
             }
 
         }
