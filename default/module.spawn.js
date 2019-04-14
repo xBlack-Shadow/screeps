@@ -38,6 +38,13 @@ var spawn = {
                 // Cost: 2550
                 bodyArray = [WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
                 break;
+            case 'protectron':
+                bodyArray = [ATTACK, ATTACK, MOVE, MOVE];
+                break;
+            case 'scout':
+                bodyArray = [ATTACK, ATTACK, ATTACK, ATTACK, TOUGH, TOUGH, MOVE, MOVE];
+                break;
+
             default:
                 // Cost: 300
                 bodyArray = [WORK, WORK, CARRY, MOVE];
@@ -48,7 +55,7 @@ var spawn = {
     },
 
 
-    spawnCreep: function (spawn, objective, body) {
+    spawnsCreep: function (spawn, objective, body) {
         var random = Math.floor((Math.random() * 100) + 1);
         var newName = spawn.spawnCreep(this.getCreepBody(body), 'scribbles' + random, {memory: {role: objective}});
         if (spawn.spawning) {
@@ -61,62 +68,6 @@ var spawn = {
                 console.log(spawn.name + ' running spawn');
             } else {
                 console.log('spawning new' + ' ' + objective + ' ' + newName);
-            }
-        }
-    },
-
-    spawnMedCreep: function (spawn, objective) {
-        var random = Math.floor((Math.random() * 100) + 1);
-        var newName = spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE, MOVE], 'Wedge' + random, {memory: {role: objective}});
-        if (newName === -6) {
-            console.log('Not enought Energy');
-        } else {
-            if (newName === -4) {
-                console.log(spawn.name + ' running spawn');
-            } else {
-                console.log('spawning new' + ' ' + objective + ' ' + newName);
-            }
-        }
-    },
-
-
-    spawnBigCreep: function (spawn, objective) {
-        var random = Math.floor((Math.random() * 100) + 1);
-        var newName = spawn.spawnCreep([WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], 'Biggs' + random, {memory: {role: objective}});
-        if (newName === -6) {
-            console.log('Not enought Energy');
-        } else {
-            if (newName === -4) {
-                console.log(spawn.name + ' running spawn');
-            } else {
-                console.log('Spawning new' + ' ' + objective + ' ' + newName);
-            }
-        }
-    },
-
-    // Cost: 260
-    spawnProtectron: function (spawn, objective) {
-        var newName = spawn.spawnCreep([ATTACK, ATTACK, MOVE, MOVE], undefined, {role: objective});
-        if (newName === -6) {
-            console.log('Not enought Energy');
-        } else {
-            if (newName === -4) {
-                console.log(spawn.name + ' running spawn');
-            } else {
-                console.log('Spawning new' + ' ' + objective + ' ' + newName);
-            }
-        }
-    },
-
-    spawnScoutCreep: function (spawn, objective) {
-        var newName = spawn.spawnCreep([ATTACK, ATTACK, ATTACK, ATTACK, TOUGH, TOUGH, MOVE, MOVE], undefined, {role: objective});
-        if (newName === -6) {
-            console.log('Not enought Energy');
-        } else {
-            if (newName === -4) {
-                console.log(spawn.name + ' running spawn');
-            } else {
-                console.log('Spawning new' + ' ' + objective + ' ' + newName);
             }
         }
     },
