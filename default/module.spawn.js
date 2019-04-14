@@ -62,10 +62,10 @@ var spawn = {
         if (spawn.spawning) {
             console.log(JSON.stringify(spawn.spawning));
         }
-        if (newName === -6) {
+        if (newName === ERR_NOT_ENOUGH_ENERGY) {
             console.log('Not enought Energy');
         } else {
-            if (newName === -4) {
+            if (newName === ERR_BUSY) {
                 console.log(spawn.name + ' running spawn');
             } else {
                 console.log('spawning new' + ' ' + objective + ' ' + newName);
