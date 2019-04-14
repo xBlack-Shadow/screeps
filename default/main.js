@@ -20,7 +20,10 @@ module.exports.loop = function() {
         logModule.log();
         
         if(Memory.spawns === undefined){
-            Memory.spawns = Game.spawns['Lasika'];
+            for(const i in Game.spawns) {
+                Memory.spawns = Game.spawns[i];
+            }
+
         }
     
     switch(Game.time % 10){
