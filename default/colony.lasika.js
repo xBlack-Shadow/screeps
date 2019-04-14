@@ -66,7 +66,7 @@ var lasika = {
                                         spawnModule.spawnDefScout(spawn, 'scout');
                                     }
                                 }else{
-                                    if(outers.length < 1) {
+                                    if(outers.length < 2) {
                                         spawnModule.spawnBigCreep(spawn, 'out');
                                     }else{
                                         if(trader.length < 1){
