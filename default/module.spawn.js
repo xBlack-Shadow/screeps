@@ -71,16 +71,16 @@ var spawn = {
     spawnsCreep: function (objective, body) {
         let random = Math.floor((Math.random() * 100) + 1);
         let spawn = this.spawnToUse();
-        let newName = spawn.spawnCreep(this.getCreepBody(body), 'scribbles' + random, {memory: {role: objective}});
-        console.log(spawn.spawnCreep(this.getCreepBody(body), 'scribbles' + random, {memory: {role: objective}, dryRun: true}));
-        if (newName === ERR_NOT_ENOUGH_ENERGY) {
-            console.log('Not enought Energy');
-        } else {
-            if (newName === ERR_BUSY) {
+        switch (spawn.spawnCreep(this.getCreepBody(body), 'test', {dryRun: true})) {
+            case ERR_NOT_ENOUGH_ENERGY:
+                console.log('Not enought Energy');
+                break;
+            case ERR_BUSY:
                 console.log(spawn.name + ' running spawn');
-            } else {
-                console.log('spawning new' + ' ' + objective + ' ' + newName);
-            }
+                break;
+            default:
+                spawn.spawnCreep(this.getCreepBody(body), 'scribbles' + random, {memory: {role: objective}});
+                break;
         }
     },
 };
