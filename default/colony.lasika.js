@@ -6,9 +6,6 @@ var lasika = {
         var myRoom = Game.spawns['Lasika'].room;
         var lasikaCreeps = spawn.room.find(FIND_MY_CREEPS);
         
-        var minerals = Game.getObjectById('59a5e3340f493b307691227a');
-        
-        
         var harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'harvester');
     	var builders = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'builder');
     	var upgraders = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'upgrader');
@@ -18,10 +15,11 @@ var lasika = {
     	var scouts = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'scout');
     	var outers = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'out');
     	var claimboys = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'claim');
+    	var trader = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'trader');
     	
-    	if(harvesters.length < 4) {
+    	if(harvesters.length < 2) {
             if(myRoom.energyAvailable < 550){
-                spawnModule.spawnCreep(spawn, 'harvester')
+                executeSpawn(spawn, 'harvester');
             }else{
                 if(myRoom.energyAvailable < 1000){
                     spawnModule.spawnMedCreep(spawn, 'harvester')
@@ -30,8 +28,8 @@ var lasika = {
                 }
             }
         }else{
-            if(upgraders.length < 1) {
-                if(myRoom.energyAvailable < 550){
+            if(upgraders.length < 3) {
+                if(/*myRoom.energyAvailable < 550*/false){
                     spawnModule.spawnCreep(spawn, 'upgrader');
                 }else{
                     if(/*myRoom.energyAvailable < 1000*/ true){
@@ -41,7 +39,7 @@ var lasika = {
                     }   
                 }
             }else{
-                if(builders.length < 0) {
+                if(builders.length < 1) {
                     if(myRoom.energyAvailable < 550){
                         spawnModule.spawnCreep(spawn, 'builder');
                     }else{
@@ -53,9 +51,9 @@ var lasika = {
                     }
                 }else{
                     if(fixers.length < 2) {
-                        spawnModule.spawnMedCreep(spawn, 'fixer');
+                        spawnModule.spawnBigCreep(spawn, 'fixer');
                     }else{
-                        if(roadsters.length < 1) {
+                        if(roadsters.length < 0) {
                             spawnModule.spawnBigCreep(spawn, 'roadster');
                         }else{
                             if(rampsters.length < 0) {
@@ -68,9 +66,12 @@ var lasika = {
                                         spawnModule.spawnDefScout(spawn, 'scout');
                                     }
                                 }else{
-                                    if(outers.length < 0) {
+                                    if(outers.length < 1) {
                                         spawnModule.spawnBigCreep(spawn, 'out');
                                     }else{
+                                        if(trader.length < 1){
+                                            spawnModule.spawnBigCreep(spawn, 'trader');
+                                        }
                                         if(claimboys.lenght < 0){
                                             spawnModule.spawnClaimCreep(spawn, 'claim')
                                         }
@@ -82,7 +83,11 @@ var lasika = {
                 }
             }
         }
-	}
+	},
+	
+	executeSpawn: function(spawn, role){
+	    spawnModule.spawnCreep(spawn, role);
+	} 
 }
  
 module.exports = lasika

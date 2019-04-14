@@ -33,9 +33,9 @@ var roleHarvester = {
         });
             target.push()
             target.sort();
-            if (Game.getObjectById('59a5e3340f493b307691227a').store[RESOURCE_ENERGY] < Game.getObjectById('59a5e3340f493b307691227a').storeCapacity / 2) {
+            /*if (Game.getObjectById('59a5e3340f493b307691227a').store[RESOURCE_ENERGY] < Game.getObjectById('59a5e3340f493b307691227a').storeCapacity / 2) {
                 target.push(Game.getObjectById('59a5e3340f493b307691227a'));
-            }
+            }*/
 
             if (target.length) {
                 if (creep.transfer(target[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {

@@ -9,7 +9,7 @@
 
 //TODO: Namensgebung irgendwie randomisieren. spawncreep nimmt kein undefined mehr an.
 //TODO: Fehlerkennung mit einem SwitchCase bauen.
-//TODO: Bevor es überhaupt zu einem Fehlerfall kommt: dryrun
+//TODO: Bevor es Ã¼berhaupt zu einem Fehlerfall kommt: dryrun
 var spawn = {
 
 
@@ -79,8 +79,6 @@ var spawn = {
             }
         }
     },
-    
-    
     
     spawnScoutCreep: function(spawn, objective) {
         var newName = spawn.spawnCreep([ATTACK,ATTACK,ATTACK,ATTACK,TOUGH,TOUGH,MOVE,MOVE], undefined, {role: objective});

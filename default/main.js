@@ -16,6 +16,10 @@ module.exports.loop = function() {
     // Main.js logic should go here.
     
         logModule.log();
+        
+        if(Memory.spawns === undefined){
+            Memory.spawns = Game.spawns['Lasika'];
+        }
     
     switch(Game.time % 10){
         case 9:

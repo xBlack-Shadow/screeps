@@ -7,16 +7,19 @@ var roleOut = {
                     return (structure.structureType == STRUCTURE_TERMINAL)
                 }
         })
-        var target = Game.getObjectById('59a5e3340f493b307691227a');
         
         if(creep.memory.source === undefined){
             var sources = creep.room.find(FIND_MINERALS);
             creep.memory.source = sources[0].id;
         }
-        if(!creep.memory.harvesting && creep.carry.K === undefined) {
+        if(creep.memory.target === undefined){
+            console.log(otherTarget[0].id);
+            creep.memory.target = otherTarget[0].id;
+        }
+        if(!creep.memory.harvesting && creep.carry.H === undefined) {
             creep.memory.harvesting = true;
 	    }
-	    if(creep.memory.harvesting && creep.carry.K == creep.carryCapacity) {
+	    if(creep.memory.harvesting && creep.carry.H == creep.carryCapacity) {
 	        creep.memory.harvesting = false;
 	    }
         
@@ -27,9 +30,10 @@ var roleOut = {
             };
         }
         else {
-            if(target){
-                creep.transfer(target, RESOURCE_KEANIUM)
-                if(creep.transfer(target, RESOURCE_KEANIUM) == ERR_NOT_IN_RANGE || creep.transfer(target, RESOURCE_KEANIUM) == ERR_INVALID_TARGET) {
+            if(creep.memory.target){
+                let target = Game.getObjectById(creep.memory.target);
+                creep.transfer(target, RESOURCE_HYDROGEN);
+                if(creep.transfer(target, RESOURCE_HYDROGEN) == ERR_NOT_IN_RANGE || creep.transfer(target, RESOURCE_HYDROGEN) == ERR_INVALID_TARGET) {
                     creep.moveTo(target);
                 }
             }

@@ -25,7 +25,7 @@
                 filter: (structure) => {
                         return (
 								structure.structureType == STRUCTURE_WALL) &&
-								structure.hits < 10000000
+								structure.hits < 30000000
                         }
             });
             if(targets.length) {
@@ -33,7 +33,7 @@
                     console.log(creep.moveTo(targets[0]));
                 }
             }else{
-                console.log('keine Walls unter 10000000 hits')
+                console.log('keine Walls unter 100000000 hits')
                 if(creep.room.controller.level != 8)
                 {
                     roleUpgrader.run(creep);
