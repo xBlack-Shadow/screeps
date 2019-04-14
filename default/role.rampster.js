@@ -42,11 +42,11 @@
         //        // nothing to repair, let's do something else?
         //    }
         //}
-        if(creep.memory.fixing && creep.carry.energy == 0) {
+        if(creep.memory.fixing && creep.carry.energy === 0) {
             creep.say('collecting');
             creep.memory.fixing = false;
 	    }
-	    if(!creep.memory.fixing && creep.carry.energy == creep.carryCapacity) {
+	    if(!creep.memory.fixing && creep.carry.energy === creep.carryCapacity) {
 	        creep.say('Rampster');
 	        creep.memory.fixing = true;
 	    }
@@ -55,16 +55,16 @@
             var targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                         return (
-								structure.structureType == STRUCTURE_RAMPART) &&
+								structure.structureType === STRUCTURE_RAMPART) &&
 								structure.hits < 20000
                         }
             });
-                if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
+                if(creep.repair(targets[0]) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
                 }
         }else {
 	        var sources = creep.pos.findClosestByRange(FIND_SOURCES);
-            if(creep.harvest(sources) == ERR_NOT_IN_RANGE) {
+            if(creep.harvest(sources) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources);
             }
 	    }

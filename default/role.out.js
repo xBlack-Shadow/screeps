@@ -4,7 +4,7 @@ var roleOut = {
     run: function(creep) {
         var otherTarget = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_TERMINAL)
+                    return (structure.structureType === STRUCTURE_TERMINAL)
                 }
         })
         
@@ -19,13 +19,13 @@ var roleOut = {
         if(!creep.memory.harvesting && creep.carry.H === undefined) {
             creep.memory.harvesting = true;
 	    }
-	    if(creep.memory.harvesting && creep.carry.H == creep.carryCapacity) {
+	    if(creep.memory.harvesting && creep.carry.H === creep.carryCapacity) {
 	        creep.memory.harvesting = false;
 	    }
         
 	    if(creep.memory.harvesting) {
             var source = Game.getObjectById(creep.memory.source);
-            if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+            if(creep.harvest(source) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(source);
             };
         }

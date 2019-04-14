@@ -1,12 +1,12 @@
 var log = {
     
 	log: function(){
-	    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    	var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-    	var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    	var fixers = _.filter(Game.creeps, (creep) => creep.memory.role == 'fixer');
-    	var roadsters = _.filter(Game.creeps, (creep) => creep.memory.role == 'roadster');
-    	var rampsters = _.filter(Game.creeps, (creep) => creep.memory.role == 'rampster');
+	    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
+    	var builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder');
+    	var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role === 'upgrader');
+    	var fixers = _.filter(Game.creeps, (creep) => creep.memory.role === 'fixer');
+    	var roadsters = _.filter(Game.creeps, (creep) => creep.memory.role === 'roadster');
+    	var rampsters = _.filter(Game.creeps, (creep) => creep.memory.role === 'rampster');
     	var scouts = _.filter(Game.creeps, (creep) => creep.memory.role == 'scout');
     	var outers = _.filter(Game.creeps, (creep) => creep.memory.role == 'out')
     	var claimboys = _.filter(Game.creeps, (creep) => creep.memory.role == 'claim');

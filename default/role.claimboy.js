@@ -6,7 +6,7 @@ var roleClaim = {
         console.log(target);
         console.log(creep.claimController(target));
         creep.moveTo(target);
-            if(creep.claimController(target) == ERR_NOT_IN_RANGE) {
+            if(creep.claimController(target) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
                 console.log(target);
             }

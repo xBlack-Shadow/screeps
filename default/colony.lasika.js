@@ -6,16 +6,16 @@ var lasika = {
         var myRoom = Game.spawns['Lasika'].room;
         var lasikaCreeps = spawn.room.find(FIND_MY_CREEPS);
         
-        var harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'harvester');
-    	var builders = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'builder');
-    	var upgraders = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'upgrader');
-    	var fixers = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'fixer');
-    	var roadsters = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'roadster');
-    	var rampsters = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'rampster');
-    	var scouts = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'scout');
-    	var outers = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'out');
-    	var claimboys = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'claim');
-    	var trader = _.filter(lasikaCreeps, (creep) => creep.memory.role == 'trader');
+        var harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'harvester');
+    	var builders = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'builder');
+    	var upgraders = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'upgrader');
+    	var fixers = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'fixer');
+    	var roadsters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'roadster');
+    	var rampsters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'rampster');
+    	var scouts = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'scout');
+    	var outers = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'out');
+    	var claimboys = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'claim');
+    	var trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
     	
     	if(harvesters.length < 2) {
             if(myRoom.energyAvailable < 550){

@@ -15,34 +15,34 @@ var ai = {
         
         for(var name in Game.creeps) {
             var creep = Game.creeps[name];
-            if(creep.memory.role == 'harvester') {
+            if(creep.memory.role === 'harvester') {
                 roleHarvester.run(creep);
             }
-            if(creep.memory.role == 'upgrader') {
+            if(creep.memory.role === 'upgrader') {
                 roleUpgrader.run(creep);
             }
-    		if(creep.memory.role == 'builder') {
+    		if(creep.memory.role === 'builder') {
                 roleBuilder.run(creep);
             }
-            if(creep.memory.role == 'fixer') {
+            if(creep.memory.role === 'fixer') {
                 roleFixer.run(creep);
             }
-            if(creep.memory.role == 'rampster') {
+            if(creep.memory.role === 'rampster') {
                 roleRampster.run(creep);
             }
-            if(creep.memory.role == 'scout') {
+            if(creep.memory.role === 'scout') {
                 roleScout.run(creep);
             }
-            if(creep.memory.role == 'claim') {
+            if(creep.memory.role === 'claim') {
                 roleClaim.run(creep);
             }
-            if(creep.memory.role == 'roadster') {
+            if(creep.memory.role === 'roadster') {
                 roleRoadster.run(creep);
             }
-            if(creep.memory.role == 'out') {
+            if(creep.memory.role === 'out') {
                 roleOut.run(creep);
             }
-            if(creep.memory.role == 'trader'){
+            if(creep.memory.role === 'trader'){
                 roleTrader.run(creep);
             }
             if(creep.memory.role == 'protectron'){

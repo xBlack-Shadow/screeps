@@ -9,7 +9,7 @@ var market = {
                 amountToSell, 'W29S27', orders[i].roomName);
         		
             if(transferEnergyCost < maxTransferEnergyCost) {
-                if(Game.market.deal(orders[i].id, amountToSell, "W29S27") == 0)
+                if(Game.market.deal(orders[i].id, amountToSell, "W29S27") === 0)
                 {
                     console.log('traded '+ amountToSell + ' Hydrogen with '+ orders[i].roomName + ' costs:' + transferEnergyCost);    
                 }

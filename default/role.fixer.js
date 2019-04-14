@@ -13,10 +13,10 @@
         
         var roleUpgrader = require('role.upgrader');
         
-        if(creep.memory.fixing && creep.carry.energy == 0) {
+        if(creep.memory.fixing && creep.carry.energy === 0) {
             creep.memory.fixing = false;
 	    }
-	    if(!creep.memory.fixing && creep.carry.energy == creep.carryCapacity) {
+	    if(!creep.memory.fixing && creep.carry.energy === creep.carryCapacity) {
 	        creep.memory.fixing = true;
 	    }
         
@@ -24,12 +24,12 @@
             var targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                         return (
-								structure.structureType == STRUCTURE_WALL) &&
+								structure.structureType === STRUCTURE_WALL) &&
 								structure.hits < 30000000
                         }
             });
             if(targets.length) {
-                if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
+                if(creep.repair(targets[0]) === ERR_NOT_IN_RANGE) {
                     console.log(creep.moveTo(targets[0]));
                 }
             }else{
@@ -41,7 +41,7 @@
             }
         }else {
 	        var sources = creep.pos.findClosestByRange(FIND_SOURCES);
-            if(creep.harvest(sources) == ERR_NOT_IN_RANGE) {
+            if(creep.harvest(sources) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources);
             }
 	    }
