@@ -66,7 +66,6 @@ var spawn = {
     spawnsCreep: function (objective, body) {
         let random = Math.floor((Math.random() * 100) + 1);
         let spawn = this.spawnToUse();
-        console.log(JSON.stringify(spawn));
         let newName = spawn.spawnCreep(this.getCreepBody(body), 'scribbles' + random, {memory: {role: objective}});
         if (spawn.spawning) {
             console.log(JSON.stringify(spawn.spawning));
