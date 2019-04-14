@@ -11,7 +11,7 @@ var roleBuilder = {
         
         if(creep.memory.source === undefined)
         {
-            daSources = creep.room.find(FIND_SOURCES_ACTIVE)
+            let daSources = creep.room.find(FIND_SOURCES_ACTIVE)
             creep.memory.source = daSources[0].id;
         }
 

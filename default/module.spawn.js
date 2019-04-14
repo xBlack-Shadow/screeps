@@ -51,7 +51,7 @@ var spawn = {
     spawnCreep: function (spawn, objective, body) {
         var random = Math.floor((Math.random() * 100) + 1);
         var newName = spawn.spawnCreep(this.getCreepBody(body), 'scribbles' + random, {memory: {role: objective}});
-        console.log(spawn.spawning);
+        console.log(JSON.stringify(spawn.spawning));
         if (newName === -6) {
             console.log('Not enought Energy');
         } else {
