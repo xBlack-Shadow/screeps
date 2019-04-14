@@ -18,17 +18,17 @@ var lasika = {
         var claimboys = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'claim');
         var trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
 
-        if (harvesters.length < 2) {
-            spawnModule.spawnsCreep('harvester', 'big');
+        if (harvesters.length < 1) {
+            spawnModule.spawnsCreep('harvester', 'bigger');
         } else {
-            if (upgraders.length < 3) {
-                spawnModule.spawnsCreep('upgrader', 'big');
+            if (upgraders.length < 1) {
+                spawnModule.spawnsCreep('upgrader', 'bigger');
             } else {
                 if (builders.length < 1) {
                     spawnModule.spawnsCreep('builder', 'big');
                 } else {
                     if (fixers.length < 2) {
-                        spawnModule.spawnsCreep('fixer', 'big');
+                        spawnModule.spawnsCreep('fixer', 'medium');
                     } else {
                         if (roadsters.length < 0) {
                             spawnModule.spawnsCreep('roadster', 'big');
