@@ -13,8 +13,8 @@ var ai = {
         var roleProtectron = require('role.protectron');
         
         
-        for(var name in Game.creeps) {
-            var creep = Game.creeps[name];
+        for(let name in Game.creeps) {
+            let creep = Game.creeps[name];
             switch (creep.memory.role) {
                 case 'harvester':
                     roleHarvester.run(creep);
@@ -57,5 +57,5 @@ var ai = {
         var roleTower = require('role.tower');
         roleTower.defendLasika();
     }
-}
+};
 module.exports = ai;
