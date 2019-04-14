@@ -9,9 +9,9 @@ var log = {
     	var fixers = _.filter(Game.creeps, (creep) => creep.memory.role === 'fixer');
     	var roadsters = _.filter(Game.creeps, (creep) => creep.memory.role === 'roadster');
     	var rampsters = _.filter(Game.creeps, (creep) => creep.memory.role === 'rampster');
-    	var scouts = _.filter(Game.creeps, (creep) => creep.memory.role == 'scout');
-    	var outers = _.filter(Game.creeps, (creep) => creep.memory.role == 'out')
-    	var claimboys = _.filter(Game.creeps, (creep) => creep.memory.role == 'claim');
+    	var scouts = _.filter(Game.creeps, (creep) => creep.memory.role === 'scout');
+    	var outers = _.filter(Game.creeps, (creep) => creep.memory.role === 'out');
+    	var claimboys = _.filter(Game.creeps, (creep) => creep.memory.role === 'claim');
     	var ramparts = _.filter(Game.structures, (structure) => structure.structureType === STRUCTURE_RAMPART);
     	var points = [];
     	
@@ -34,12 +34,12 @@ var log = {
 	            Game.spawns['Lasika'].room.energyCapacityAvailable + ' |');
         console.log(points);
 
-		for(const i in Memory.spawns) {
-			let current = Game.getObjectById(Memory.spawns[i]);
+		Memory.spawns.forEach(function (spawnID) {
+			let current = Game.getObjectById(spawnID);
 			if (current.spawning !== null) {
 				console.log(current.name + ' spawning ' + JSON.stringify(current.spawning));
 			}
-		}
+		});
 	}
 }
 
