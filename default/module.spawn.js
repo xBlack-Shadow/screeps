@@ -44,7 +44,9 @@ var spawn = {
             case 'scout':
                 bodyArray = [ATTACK, ATTACK, ATTACK, ATTACK, TOUGH, TOUGH, MOVE, MOVE];
                 break;
-
+            case 'claim':
+                bodyArray = [CLAIM, MOVE];
+                break;
             default:
                 // Cost: 300
                 bodyArray = [WORK, WORK, CARRY, MOVE];
@@ -53,7 +55,6 @@ var spawn = {
 
         return bodyArray;
     },
-
 
     spawnsCreep: function (spawn, objective, body) {
         var random = Math.floor((Math.random() * 100) + 1);
@@ -71,49 +72,6 @@ var spawn = {
             }
         }
     },
-
-    spawnOutCreep: function (spawn, objective) {
-        var newName = spawn.spawnCreep([MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, CARRY, CARRY], undefined, {
-            role: objective,
-            target: '5793fc87bc81495b7d8c885e',
-            sources: '577b92b60f9d51615fa46f87'
-        });
-        if (newName === -6) {
-            console.log('Not enought Energy');
-        } else {
-            if (newName === -4) {
-                console.log(spawn.name + ' running spawn');
-            } else {
-                console.log('Spawning new' + ' ' + objective + ' ' + newName);
-            }
-        }
-    },
-
-    spawnDefScout: function (spawn, objective) {
-        var newName = spawn.spawnCreep([MOVE, MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK], undefined, {role: objective});
-        if (newName === -6) {
-            console.log('Not enought Energy');
-        } else {
-            if (newName === -4) {
-                console.log(spawn.name + ' running spawn');
-            } else {
-                console.log('Spawning new' + ' ' + objective + ' ' + newName);
-            }
-        }
-    },
-
-    spawnClaimCreep: function (spawn, objective) {
-        var newName = spawn.spawnCreep([CLAIM, MOVE], undefined, {role: objective});
-        if (newName === -6) {
-            console.log('Not enought Energy');
-        } else {
-            if (newName === -4) {
-                console.log(spawn.name + ' running spawn');
-            } else {
-                console.log('spawning new' + ' ' + objective + ' ' + newName);
-            }
-        }
-    }
-}
+};
 
 module.exports = spawn;
