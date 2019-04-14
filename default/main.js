@@ -1,3 +1,5 @@
+'use strict';
+
 var spawnModule = require('module.spawn');
 var logModule = require('module.log');
 var aiModule = require('module.ai');

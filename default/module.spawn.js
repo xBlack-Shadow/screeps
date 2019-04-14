@@ -7,6 +7,8 @@
  * mod.thing == 'a thing'; // true
  */
 
+'use strict';
+
 //TODO: Namensgebung irgendwie randomisieren. spawncreep nimmt kein undefined mehr an.
 //TODO: Fehlerkennung mit einem SwitchCase bauen.
 //TODO: Bevor es Ã¼berhaupt zu einem Fehlerfall kommt: dryrun

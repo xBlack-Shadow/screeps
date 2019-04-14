@@ -1,3 +1,5 @@
+'use strict';
+
 var roleTower = {
     
     defendLasika: function(){

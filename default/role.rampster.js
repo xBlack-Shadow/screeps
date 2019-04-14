@@ -6,6 +6,9 @@
  * var mod = require('role.fixer');
  * mod.thing == 'a thing'; // true
  */
+
+'use strict';
+
  var roleRampster = {
 
     /** @param {Creep} creep **/

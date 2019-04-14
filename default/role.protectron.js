@@ -1,3 +1,5 @@
+'use strict';
+
 var roleProtectron = {
 
     /** @param {Creep} creep **/

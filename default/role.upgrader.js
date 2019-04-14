@@ -1,3 +1,5 @@
+'use strict';
+
 var roleUpgrader = {
 
     /** @param {Creep} creep **/

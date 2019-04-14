@@ -7,6 +7,8 @@
  * mod.thing == 'a thing'; // true
  */
 
+'use strict';
+
 module.exports = {
 
 };

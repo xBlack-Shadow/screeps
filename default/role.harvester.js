@@ -1,3 +1,5 @@
+'use strict';
+
 var roleHarvester = {
 
     /** @param {Creep} creep **/

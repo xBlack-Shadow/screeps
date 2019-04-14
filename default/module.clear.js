@@ -1,3 +1,5 @@
+'use strict';
+
 var clear = {
     clearMemory: function(){
         for(var name in Memory.creeps) {

@@ -1,3 +1,5 @@
+'use strict';
+
 var lasika = {
 	
 	live: function(){

@@ -1,3 +1,5 @@
+'use strict';
+
 var ai = {
     runCreeps: function(){
         var roleHarvester = require('role.harvester');

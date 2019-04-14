@@ -1,3 +1,5 @@
+'use strict';
+
 var roleBuilder = {
 
     /** @param {Creep} creep **/

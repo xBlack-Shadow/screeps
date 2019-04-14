@@ -1,3 +1,5 @@
+'use strict';
+
 var roleOut = {
 
     /** @param {Creep} creep **/
