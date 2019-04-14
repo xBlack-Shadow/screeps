@@ -15,10 +15,7 @@
 var spawn = {
     spawnToUse: function(){
         for(const i in Memory.spawns) {
-            console.log(i);
-            console.log(JSON.stringify(Memory.spawns[i]));
             if (Memory.spawns[i].spawning == null) {
-                console.log(Memory.spawns[i].name + ' is not spawning');
                 return Game.getObjectById(Memory.spawns[i].id);
             }
         }
