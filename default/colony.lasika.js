@@ -19,7 +19,7 @@ var lasika = {
     	
     	if(harvesters.length < 2) {
             if(myRoom.energyAvailable < 550){
-                executeSpawn(spawn, 'harvester');
+                this.executeSpawn(spawn, 'harvester');
             }else{
                 if(myRoom.energyAvailable < 1000){
                     spawnModule.spawnMedCreep(spawn, 'harvester')
