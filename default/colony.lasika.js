@@ -53,7 +53,7 @@ let lasika = {
                                             }
                                         })[0];
                                         console.log(JSON.stringify(terminal.store));
-                                        if (trader.length < 1 && terminal.store.RESOURCE_ENERGY <= 50000) {
+                                        if (trader.length < 1 && terminal.store.energy <= 50000) {
                                             spawnModule.spawnsCreep('trader', 'big');
                                         }
                                         if (claimboys.length < 0) {
