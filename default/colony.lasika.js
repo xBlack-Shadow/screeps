@@ -10,7 +10,7 @@ let lasika = {
         console.log(JSON.stringify(lasikaCreeps));
         console.log(JSON.stringify(lasikaCreeps2));
 
-        let isit = _.isequal(lasikaCreeps, lasikaCreeps2);
+        let isit = _.isEqual(lasikaCreeps, lasikaCreeps2);
         console.log(isit);
 
         let harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'harvester');
