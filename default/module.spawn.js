@@ -16,10 +16,13 @@ let spawn = {
         let result = undefined;
         for(const i in Memory.spawns) {
             let current = Game.getObjectById(Memory.spawns[i]);
+            console.log(current);
             if (current.spawning == null) {
                 result = current;
             }
+            console.log(result);
         }
+        console.log(result);
         return result;
     },
 
