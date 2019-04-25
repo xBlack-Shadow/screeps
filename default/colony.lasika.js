@@ -5,8 +5,8 @@ let lasika = {
     live: function () {
         let spawnModule = require('module.spawn');
         let spawn = Game.spawns['Lasika'];
-        let lasikaCreeps = spawn.room.find(FIND_MY_CREEPS);
-        let lasikaCreeps2 = _.filter(Game.creeps, (creep) => creep.room.name === spawn.room.name);
+        let lasikaCreeps2 = spawn.room.find(FIND_MY_CREEPS);
+        let lasikaCreeps = _.filter(Game.creeps, (creep) => creep.room.name === spawn.room.name);
         console.log(JSON.stringify(lasikaCreeps));
         console.log(JSON.stringify(lasikaCreeps2));
 
