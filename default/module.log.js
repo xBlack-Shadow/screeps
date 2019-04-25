@@ -12,6 +12,7 @@ let log = {
     	let scouts = _.filter(Game.creeps, (creep) => creep.memory.role === 'scout');
     	let outers = _.filter(Game.creeps, (creep) => creep.memory.role === 'out');
     	let claimboys = _.filter(Game.creeps, (creep) => creep.memory.role === 'claim');
+		let trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
     	let points = [];
 
 		Memory.harvester = harvesters.length; //TODO: Log umbauen. Anzahl der Einheiten in der Memory speichern und anzeigen
@@ -24,6 +25,7 @@ let log = {
 	            ' Scouts: ' + scouts.length + 
 	            ' Outers: ' + outers.length + 
 	            ' Claimboys: ' + claimboys.length + 
+	            ' Trader: ' + trader.length +
 	            ' Rampster: ' + rampsters.length + ' |' +
 	            ' Energy: '+ Game.spawns['Lasika'].room.energyAvailable + ' / ' +
 	            Game.spawns['Lasika'].room.energyCapacityAvailable + ' |');

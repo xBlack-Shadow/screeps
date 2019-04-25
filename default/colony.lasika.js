@@ -52,7 +52,6 @@ let lasika = {
                                                 return(structure.structureType === STRUCTURE_TERMINAL)
                                             }
                                         })[0];
-                                        console.log(JSON.stringify(terminal.store));
                                         if (trader.length < 1 && terminal.store.energy <= 50000) {
                                             spawnModule.spawnsCreep('trader', 'big');
                                         }
