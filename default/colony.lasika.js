@@ -18,8 +18,11 @@ var lasika = {
         var claimboys = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'claim');
         var trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
 
-        if (harvesters.length < 1) {
-            spawnModule.spawnsCreep('harvester', 'bigger');
+        if (harvesters.length < 2) {
+            if(spawn.room.energyAvailable <= 500){
+                spawnModule.spawnsCreep('harvester', '');
+            }
+            spawnModule.spawnsCreep('harvester', 'medium');
         } else {
             if (upgraders.length < 1) {
                 spawnModule.spawnsCreep('upgrader', 'bigger');
@@ -27,7 +30,7 @@ var lasika = {
                 if (builders.length < 1) {
                     spawnModule.spawnsCreep('builder', 'big');
                 } else {
-                    if (fixers.length < 2) {
+                    if (fixers.length < 1) {
                         spawnModule.spawnsCreep('fixer', 'medium');
                     } else {
                         if (roadsters.length < 0) {
@@ -39,7 +42,8 @@ var lasika = {
                                 if (scouts.length < 0) {
                                     spawnModule.spawnsCreep('scout', 'medium');
                                 } else {
-                                    if (outers.length < 1) {
+                                    let minerals = spawn.room.find(FIND_MINERALS);
+                                    if (outers.length < 1 && minerals[0].mineralAmount !== 0) {
                                         spawnModule.spawnsCreep('out', 'out');
                                     } else {
                                         if (trader.length < 0) {

@@ -9,9 +9,8 @@
 
 'use strict';
 
-//TODO: Namensgebung irgendwie randomisieren. spawncreep nimmt kein undefined mehr an.
-//TODO: Fehlerkennung mit einem SwitchCase bauen.
-//TODO: Bevor es Ã¼berhaupt zu einem Fehlerfall kommt: dryrun
+//TODO: Body größe irgendwie staffeln und nach Abhängigkeit der Vorhandenen Energy spawnwn
+
 var spawn = {
     spawnToUse: function(){
         for(const i in Memory.spawns) {
@@ -24,6 +23,11 @@ var spawn = {
 
     getCreepBody: function (body) {
         let bodyArray = [];
+        
+        if(Memory.creeps === undefined || _.isEmpty(Memory.creeps)){
+            body = '';
+            Game.notify('there was no Creep');
+        }
 
         switch (body) {
             case 'medium':
@@ -35,7 +39,7 @@ var spawn = {
                 bodyArray = [WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE];
                 break;
             case 'bigger':
-                // Cost: 1000
+                // Cost: 1000+
                 bodyArray = [WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
                 break;
             case 'out':

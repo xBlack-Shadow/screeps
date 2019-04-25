@@ -9,6 +9,8 @@
 
 'use strict';
 
+//TODO: Staffelung dür die Walls einbauen
+
  var roleFixer = {
 
     /** @param {Creep} creep **/

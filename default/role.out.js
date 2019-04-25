@@ -9,7 +9,6 @@ var roleOut = {
                     return (structure.structureType === STRUCTURE_TERMINAL)
                 }
         });
-        
         if(creep.memory.source === undefined){
             var sources = creep.room.find(FIND_MINERALS);
             creep.memory.source = sources[0].id;
