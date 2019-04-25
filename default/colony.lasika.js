@@ -19,10 +19,10 @@ let lasika = {
         let trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
 
         if (harvesters.length < 2) {
-            if (spawn.room.energyAvailable <= 500) {
+            if (spawn.room.energyAvailable < 1000) {
                 spawnModule.spawnsCreep('harvester', '');
             }
-            spawnModule.spawnsCreep('harvester', 'medium');
+            spawnModule.spawnsCreep('harvester', 'big');
         } else {
             if (upgraders.length < 1) {
                 spawnModule.spawnsCreep('upgrader', 'bigger');
