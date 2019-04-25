@@ -12,7 +12,7 @@ let log = {
     	let scouts = _.filter(Game.creeps, (creep) => creep.memory.role === 'scout');
     	let outers = _.filter(Game.creeps, (creep) => creep.memory.role === 'out');
     	let claimboys = _.filter(Game.creeps, (creep) => creep.memory.role === 'claim');
-		let trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
+		let trader = _.filter(Game.creeps, (creep) => creep.memory.role === 'trader');
     	let points = [];
 
 		Memory.harvester = harvesters.length; //TODO: Log umbauen. Anzahl der Einheiten in der Memory speichern und anzeigen
