@@ -6,6 +6,8 @@ let lasika = {
         let spawnModule = require('module.spawn');
         let spawn = Game.spawns['Lasika'];
         let lasikaCreeps = spawn.room.find(FIND_MY_CREEPS);
+        let lasikaCreeps2 = Game.creeps;
+        console.log(lasikaCreeps2);
 
         let harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'harvester');
         let builders = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'builder');
@@ -17,6 +19,12 @@ let lasika = {
         let outers = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'out');
         let claimboys = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'claim');
         let trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
+
+
+
+
+
+
 
         if (harvesters.length < 2) {
             if (spawn.room.energyAvailable < 1000) {
