@@ -1,25 +1,25 @@
 'use strict';
 
-var lasika = {
+const lasika = {
 
     live: function () {
-        var spawnModule = require('module.spawn');
-        var spawn = Game.spawns['Lasika'];
-        var lasikaCreeps = spawn.room.find(FIND_MY_CREEPS);
+        const spawnModule = require('module.spawn');
+        const spawn = Game.spawns['Lasika'];
+        const lasikaCreeps = spawn.room.find(FIND_MY_CREEPS);
 
-        var harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'harvester');
-        var builders = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'builder');
-        var upgraders = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'upgrader');
-        var fixers = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'fixer');
-        var roadsters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'roadster');
-        var rampsters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'rampster');
-        var scouts = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'scout');
-        var outers = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'out');
-        var claimboys = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'claim');
-        var trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
+        const harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'harvester');
+        const builders = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'builder');
+        const upgraders = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'upgrader');
+        const fixers = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'fixer');
+        const roadsters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'roadster');
+        const rampsters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'rampster');
+        const scouts = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'scout');
+        const outers = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'out');
+        const claimboys = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'claim');
+        const trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
 
         if (harvesters.length < 2) {
-            if(spawn.room.energyAvailable <= 500){
+            if (spawn.room.energyAvailable <= 500) {
                 spawnModule.spawnsCreep('harvester', '');
             }
             spawnModule.spawnsCreep('harvester', 'medium');
