@@ -47,7 +47,12 @@ let lasika = {
                                     if (outers.length < 1 && minerals[0].mineralAmount !== 0) {
                                         spawnModule.spawnsCreep('out', 'out');
                                     } else {
-                                        if (trader.length < 0) {
+                                        let terminal = spawn.room.find(FIND_STRUCTURES, {
+                                            filter: (structure) => {
+                                                return(structure.structureType === STRUCTURE_TERMINAL)
+                                            }
+                                        })[0];
+                                        if (trader.length < 1 && terminal.store.RESOURCE_ENERGY <= 50000) {
                                             spawnModule.spawnsCreep('trader', 'big');
                                         }
                                         if (claimboys.length < 0) {
