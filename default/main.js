@@ -38,8 +38,6 @@ module.exports.loop = function () {
             default:
         }
 
-        console.log(Game.time % 2);
-
         //colonyGyenos.live();
         colonyLasika.live();
         aiModule.defendTowers();

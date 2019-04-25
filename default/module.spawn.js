@@ -13,17 +13,19 @@
 
 let spawn = {
     spawnToUse: function(){
+        let result = undefined;
         for(const i in Memory.spawns) {
             let current = Game.getObjectById(Memory.spawns[i]);
             if (current.spawning == null) {
-                return current;
+                result = current;
             }
         }
+        return result;
     },
 
     getCreepBody: function (body) {
         let bodyArray = [];
-        
+
         if(Memory.creeps === undefined || _.isEmpty(Memory.creeps)){
             body = '';
             Game.notify('there was no Creep');
