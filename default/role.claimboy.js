@@ -1,10 +1,10 @@
 'use strict';
 
-var roleClaim = {
+let roleClaim = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-        var target = Game.getObjectById('577b92b60f9d51615fa46f8c');
+        let target = Game.getObjectById('577b92b60f9d51615fa46f8c');
         console.log(target);
         console.log(creep.claimController(target));
         creep.moveTo(target);

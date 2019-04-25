@@ -1,14 +1,14 @@
 'use strict';
 
-var logModule = require('module.log');
-var aiModule = require('module.ai');
-var clearModule = require('module.clear');
-var marketModule = require('module.market');
-var colonyLasika = require('colony.lasika');
+let logModule = require('module.log');
+let aiModule = require('module.ai');
+let clearModule = require('module.clear');
+let marketModule = require('module.market');
+let colonyLasika = require('colony.lasika');
 
 // Any modules that you use that modify the game's prototypes should be require'd
 // before you require the profiler.
-const profiler = require('screeps.profiler');
+let profiler = require('screeps.profiler');
 
 // This line monkey patches the global prototypes.
 profiler.enable();
@@ -20,7 +20,7 @@ module.exports.loop = function() {
         
         if(Memory.spawns === undefined){
             let spawns = [];
-            for(const i in Game.spawns) {
+            for(let i in Game.spawns) {
                 console.log('save' + Game.spawns[i] + ' ID to memory');
                 spawns.push(Game.spawns[i].id);
             }

@@ -3,32 +3,32 @@
  * module.exports.thing = 'a thing';
  *
  * You can import it from another modules like this:
- * var mod = require('role.fixer');
+ * let mod = require('role.fixer');
  * mod.thing == 'a thing'; // true
  */
 
 'use strict';
 
- var roleRampster = {
+ let roleRampster = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
         
-        //var spawn = creep.room.find(FIND_MY_SPAWNS);
-        //var roadToRepair = creep.room.find(FIND_STRUCTURES, {
+        //let spawn = creep.room.find(FIND_MY_SPAWNS);
+        //let roadToRepair = creep.room.find(FIND_STRUCTURES, {
         //    filter: function(object){
         //        return object.structureType === STRUCTURE_ROAD && (object.hits > object.hitsMax / 3);
         //    } 
         //});
         
         //if(creep.energy === 0) {
-        //    /*var moveResult =*/ creep.moveTo(spawn);
+        //    /*let moveResult =*/ creep.moveTo(spawn);
         //    /*
         //      check moveResult here
         //    */
         //}
         //if( spawn.energy > 100) {
-        //    /*var transferResult =*/ spawn.transferEnergy(creep);
+        //    /*let transferResult =*/ spawn.transferEnergy(creep);
         //    /*
         //        check transferResult here
         //    */
@@ -55,7 +55,7 @@
 	    }
         
         if(creep.memory.fixing){
-            var targets = creep.room.find(FIND_STRUCTURES, {
+            let targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                         return (
 								structure.structureType === STRUCTURE_RAMPART) &&
@@ -66,7 +66,7 @@
                     creep.moveTo(targets[0]);
                 }
         }else {
-	        var sources = creep.pos.findClosestByRange(FIND_SOURCES);
+	        let sources = creep.pos.findClosestByRange(FIND_SOURCES);
             if(creep.harvest(sources) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources);
             }

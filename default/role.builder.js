@@ -1,13 +1,13 @@
 'use strict';
 
-var roleBuilder = {
+let roleBuilder = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
         
-        var roleNext = require('role.roadster');
+        let roleNext = require('role.roadster');
         
-        var targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
+        let targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
         
         if(creep.memory.source === undefined)
         {
@@ -32,7 +32,7 @@ var roleBuilder = {
             }
 	    }
 	    else {
-	        var sources = Game.getObjectById(creep.memory.source);
+	        let sources = Game.getObjectById(creep.memory.source);
             if(creep.harvest(sources) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources);
             }

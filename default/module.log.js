@@ -1,18 +1,18 @@
 'use strict';
 
-var log = {
+let log = {
     
 	log: function(){
-	    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
-    	var builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder');
-    	var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role === 'upgrader');
-    	var fixers = _.filter(Game.creeps, (creep) => creep.memory.role === 'fixer');
-    	var roadsters = _.filter(Game.creeps, (creep) => creep.memory.role === 'roadster');
-    	var rampsters = _.filter(Game.creeps, (creep) => creep.memory.role === 'rampster');
-    	var scouts = _.filter(Game.creeps, (creep) => creep.memory.role === 'scout');
-    	var outers = _.filter(Game.creeps, (creep) => creep.memory.role === 'out');
-    	var claimboys = _.filter(Game.creeps, (creep) => creep.memory.role === 'claim');
-    	var points = [];
+	    let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
+    	let builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder');
+    	let upgraders = _.filter(Game.creeps, (creep) => creep.memory.role === 'upgrader');
+    	let fixers = _.filter(Game.creeps, (creep) => creep.memory.role === 'fixer');
+    	let roadsters = _.filter(Game.creeps, (creep) => creep.memory.role === 'roadster');
+    	let rampsters = _.filter(Game.creeps, (creep) => creep.memory.role === 'rampster');
+    	let scouts = _.filter(Game.creeps, (creep) => creep.memory.role === 'scout');
+    	let outers = _.filter(Game.creeps, (creep) => creep.memory.role === 'out');
+    	let claimboys = _.filter(Game.creeps, (creep) => creep.memory.role === 'claim');
+    	let points = [];
 
 		Memory.harvester = harvesters.length; //TODO: Log umbauen. Anzahl der Einheiten in der Memory speichern und anzeigen
 	    

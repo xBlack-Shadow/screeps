@@ -1,18 +1,18 @@
 'use strict';
 
-var ai = {
+let ai = {
     runCreeps: function(){
-        var roleHarvester = require('role.harvester');
-        var roleUpgrader = require('role.upgrader');
-        var roleBuilder = require('role.builder');
-        var roleFixer = require('role.fixer');
-        var roleRoadster = require('role.roadster');
-        var roleRampster = require('role.rampster');
-        var roleScout = require('role.scout');
-        var roleClaim = require('role.claimboy');
-        var roleOut = require('role.out');
-        var roleTrader = require('role.trader');
-        var roleProtectron = require('role.protectron');
+        let roleHarvester = require('role.harvester');
+        let roleUpgrader = require('role.upgrader');
+        let roleBuilder = require('role.builder');
+        let roleFixer = require('role.fixer');
+        let roleRoadster = require('role.roadster');
+        let roleRampster = require('role.rampster');
+        let roleScout = require('role.scout');
+        let roleClaim = require('role.claimboy');
+        let roleOut = require('role.out');
+        let roleTrader = require('role.trader');
+        let roleProtectron = require('role.protectron');
         
         
         for(let name in Game.creeps) {
@@ -56,7 +56,7 @@ var ai = {
     },
     
     defendTowers: function(){
-        var roleTower = require('role.tower');
+        let roleTower = require('role.tower');
         roleTower.defendLasika();
     }
 };

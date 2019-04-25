@@ -3,7 +3,7 @@
  * module.exports.thing = 'a thing';
  *
  * You can import it from another modules like this:
- * var mod = require('module.spawn');
+ * let mod = require('module.spawn');
  * mod.thing == 'a thing'; // true
  */
 
@@ -11,7 +11,7 @@
 
 //TODO: Body größe irgendwie staffeln und nach Abhängigkeit der Vorhandenen Energy spawnwn
 
-var spawn = {
+let spawn = {
     spawnToUse: function(){
         for(const i in Memory.spawns) {
             let current = Game.getObjectById(Memory.spawns[i]);

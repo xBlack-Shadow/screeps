@@ -1,16 +1,16 @@
 'use strict';
 
-var roleOut = {
+let roleOut = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-        var otherTarget = creep.room.find(FIND_STRUCTURES, {
+        let otherTarget = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType === STRUCTURE_TERMINAL)
                 }
         });
         if(creep.memory.source === undefined){
-            var sources = creep.room.find(FIND_MINERALS);
+            let sources = creep.room.find(FIND_MINERALS);
             creep.memory.source = sources[0].id;
         }
         if(creep.memory.target === undefined){
@@ -25,7 +25,7 @@ var roleOut = {
 	    }
         
 	    if(creep.memory.harvesting) {
-            var source = Game.getObjectById(creep.memory.source);
+            let source = Game.getObjectById(creep.memory.source);
             if(creep.harvest(source) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(source);
             }

@@ -1,12 +1,12 @@
 'use strict';
 
-var roleHarvester = {
+let roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        var roleNext = require('role.builder');
+        let roleNext = require('role.builder');
         if (creep.memory.source === undefined) {
-            var sources = creep.room.find(FIND_SOURCES);
+            let sources = creep.room.find(FIND_SOURCES);
             creep.memory.source = sources[1].id;
         }
 
@@ -18,13 +18,13 @@ var roleHarvester = {
         }
 
         if (!creep.memory.harvesting) {
-            var source = Game.getObjectById(creep.memory.source);
+            let source = Game.getObjectById(creep.memory.source);
             if (creep.harvest(source) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(source);
             }
         }
         else {
-            var target = creep.room.find(FIND_STRUCTURES, {
+            let target = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                     return(structure.structureType === STRUCTURE_EXTENSION ||
                 structure.structureType === STRUCTURE_SPAWN ||

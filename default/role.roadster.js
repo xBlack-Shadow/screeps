@@ -3,17 +3,17 @@
  * module.exports.thing = 'a thing';
  *
  * You can import it from another modules like this:
- * var mod = require('role.fixer');
+ * let mod = require('role.fixer');
  * mod.thing === 'a thing'; // true
  */
 
 'use strict';
 
- var roleRoadster = {
+ let roleRoadster = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-        var roleUpgrader = require('role.upgrader');
+        let roleUpgrader = require('role.upgrader');
         if(creep.memory.fixing && creep.carry.energy === 0) {
             creep.say('collecting');
             creep.memory.fixing = false;
@@ -24,7 +24,7 @@
 	    }
         
         if(creep.memory.fixing){
-            var targets = creep.room.find(FIND_STRUCTURES, {
+            let targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                         return (
 								structure.structureType === STRUCTURE_ROAD) &&
@@ -42,7 +42,7 @@
                 }
             }
         }else {
-	        var sources = creep.pos.findClosestByRange(FIND_SOURCES);
+	        let sources = creep.pos.findClosestByRange(FIND_SOURCES);
             if(creep.harvest(sources) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources);
             }

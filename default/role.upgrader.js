@@ -1,6 +1,6 @@
 'use strict';
 
-var roleUpgrader = {
+let roleUpgrader = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
@@ -11,7 +11,7 @@ var roleUpgrader = {
 	    if(!creep.memory.upgrading && creep.carry.energy === creep.carryCapacity) {
 	        creep.memory.upgrading = true;
 	    }
-	    var controller1 = creep.room.controller;
+	    let controller1 = creep.room.controller;
 
 	    if(creep.memory.upgrading) {
             if(creep.upgradeController(controller1) === ERR_NOT_IN_RANGE) {
@@ -19,7 +19,7 @@ var roleUpgrader = {
             }
         }
         else {
-            var sources = creep.pos.findClosestByRange(FIND_SOURCES);
+            let sources = creep.pos.findClosestByRange(FIND_SOURCES);
             if(creep.harvest(sources) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources);
             }
