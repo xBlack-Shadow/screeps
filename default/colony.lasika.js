@@ -7,6 +7,7 @@ let lasika = {
         let spawn = Game.spawns['Lasika'];
         let lasikaCreeps = spawn.room.find(FIND_MY_CREEPS);
         let lasikaCreeps2 = Game.creeps;
+        console.log(JSON.stringify(lasikaCreeps));
         console.log(JSON.stringify(lasikaCreeps2));
 
         let harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'harvester');
