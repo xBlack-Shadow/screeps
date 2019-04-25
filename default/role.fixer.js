@@ -28,9 +28,9 @@
         if(creep.memory.fixing){
             let targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
-                        return (
+                        return (structure.structureType === STRUCTURE_RAMPART ||
 								structure.structureType === STRUCTURE_WALL) &&
-								structure.hits < 30000000
+								structure.hits < 3000000
                         }
             });
             if(targets.length) {
