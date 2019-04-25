@@ -12,36 +12,37 @@ let profiler = require('screeps.profiler');
 
 // This line monkey patches the global prototypes.
 profiler.enable();
-module.exports.loop = function() {
-  profiler.wrap(function() {
-    // Main.js logic should go here.
-    
+module.exports.loop = function () {
+    profiler.wrap(function () {
+        // Main.js logic should go here.
+
         logModule.log();
-        
-        if(Memory.spawns === undefined){
+
+        if (Memory.spawns === undefined) {
             let spawns = [];
-            for(let i in Game.spawns) {
+            for (let i in Game.spawns) {
                 console.log('save' + Game.spawns[i] + ' ID to memory');
                 spawns.push(Game.spawns[i].id);
             }
             Memory.spawns = spawns;
         }
-    
-    switch(Game.time % 10){
-        case 9:
-            clearModule.clearMemory();
-            break;
-        case 0:
-            marketModule.sell();
-            break;
-        
-        default:
-              
-            
-    }
-    //colonyGyenos.live();
-        colonyLasika.live();  
+
+        switch (Game.time % 10) {
+            case 9:
+                clearModule.clearMemory();
+                break;
+            case 0:
+                marketModule.sell();
+                break;
+
+            default:
+        }
+
+        console.log(Game.time % 2);
+
+        //colonyGyenos.live();
+        colonyLasika.live();
         aiModule.defendTowers();
         aiModule.runCreeps();
-  });
+    });
 };
