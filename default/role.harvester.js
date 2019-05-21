@@ -19,6 +19,9 @@ let roleHarvester = {
 
         if (!creep.memory.harvesting) {
             let source = Game.getObjectById(creep.memory.source);
+            if (source.energy === 0){
+                source = creep.room.find(FIND_SOURCES)[0];
+            }
             if (creep.harvest(source) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(source);
             }
