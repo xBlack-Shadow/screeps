@@ -13,7 +13,7 @@ let roleTower = {
                     return (
                         structure.structureType === STRUCTURE_ROAD ||
                         structure.structureType === STRUCTURE_RAMPART) &&
-                        structure.hits < structure.hitsMax / 2
+                        structure.hits < structure.hitsMax / 100
                 }
             });
             if (hostiles.length) {
