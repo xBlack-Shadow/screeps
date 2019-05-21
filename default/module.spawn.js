@@ -9,7 +9,7 @@
 
 'use strict';
 
-//TODO: Body größe irgendwie staffeln und nach Abhängigkeit der Vorhandenen Energy spawnwn
+//TODO: Body grÃ¶Ãe irgendwie staffeln und nach AbhÃ¤ngigkeit der Vorhandenen Energy spawnwn
 
 let spawn = {
     spawnToUse: function(){
@@ -52,7 +52,13 @@ let spawn = {
                 bodyArray = [ATTACK, ATTACK, MOVE, MOVE];
                 break;
             case 'scout':
-                bodyArray = [ATTACK, ATTACK, ATTACK, ATTACK, TOUGH, TOUGH, MOVE, MOVE];
+                bodyArray = [ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+                break;
+            case 'archer':
+                bodyArray = [RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+                break;
+            case 'healer':
+                bodyArray = [HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
                 break;
             case 'claim':
                 bodyArray = [CLAIM, MOVE];

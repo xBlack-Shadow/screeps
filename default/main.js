@@ -16,8 +16,6 @@ module.exports.loop = function () {
     profiler.wrap(function () {
         // Main.js logic should go here.
 
-        logModule.log();
-
         if (Memory.spawns === undefined) {
             let spawns = [];
             for (let i in Game.spawns) {
@@ -26,6 +24,8 @@ module.exports.loop = function () {
             }
             Memory.spawns = spawns;
         }
+
+        logModule.log();
 
         switch (Game.time % 10) {
             case 9:

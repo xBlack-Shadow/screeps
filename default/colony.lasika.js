@@ -18,6 +18,7 @@ let lasika = {
         let outers = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'out');
         let claimboys = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'claim');
         let trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
+        let protectron = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'protectron');
 
         if (harvesters.length < 2) {
             if (spawn.room.energyAvailable < 1000) {
@@ -26,43 +27,49 @@ let lasika = {
             spawnModule.spawnsCreep('harvester', 'big');
         } else {
             if (upgraders.length < 1) {
-                spawnModule.spawnsCreep('upgrader', 'bigger');
+                spawnModule.spawnsCreep('upgrader', '');
             } else {
                 if (builders.length < 1) {
                     spawnModule.spawnsCreep('builder', 'big');
                 } else {
-                    if (fixers.length < 1) {
-                        spawnModule.spawnsCreep('fixer', 'medium');
-                    } else {
-                        if (roadsters.length < 0) {
-                            spawnModule.spawnsCreep('roadster', 'big');
+                    let hostiles = spawn.room.find(FIND_HOSTILE_CREEPS);
+                    if (hostiles.length !== 0 && protectron.length < 4) {
+                        spawnModule.spawnsCreep('protectron', 'scout');
+                    }else{
+                        if (fixers.length < 3) {
+                            spawnModule.spawnsCreep('fixer', 'medium');
                         } else {
-                            if (rampsters.length < 0) {
-                                spawnModule.spawnsCreep('rampster', 'medium');
+                            if (roadsters.length < 0) {
+                                spawnModule.spawnsCreep('roadster', 'big');
                             } else {
-                                if (scouts.length < 0) {
-                                    spawnModule.spawnsCreep('scout', 'medium');
+                                if (rampsters.length < 0) {
+                                    spawnModule.spawnsCreep('rampster', 'medium');
                                 } else {
-                                    let minerals = spawn.room.find(FIND_MINERALS);
-                                    if (outers.length < 1 && minerals[0].mineralAmount !== 0) {
-                                        spawnModule.spawnsCreep('out', 'out');
+                                    if (scouts.length < 0) {
+                                        spawnModule.spawnsCreep('scout', 'medium');
                                     } else {
-                                        let terminal = spawn.room.find(FIND_STRUCTURES, {
-                                            filter: (structure) => {
-                                                return(structure.structureType === STRUCTURE_TERMINAL)
+                                        let minerals = spawn.room.find(FIND_MINERALS);
+                                        if (outers.length < 1 && minerals[0].mineralAmount !== 0) {
+                                            spawnModule.spawnsCreep('out', 'out');
+                                        } else {
+                                            let terminal = spawn.room.find(FIND_STRUCTURES, {
+                                                filter: (structure) => {
+                                                    return(structure.structureType === STRUCTURE_TERMINAL)
+                                                }
+                                            })[0];
+                                            if (trader.length < 1 && terminal.store.energy <= 50000) {
+                                                spawnModule.spawnsCreep('trader', 'big');
                                             }
-                                        })[0];
-                                        if (trader.length < 1 && terminal.store.energy <= 50000) {
-                                            spawnModule.spawnsCreep('trader', 'big');
-                                        }
-                                        if (claimboys.length < 0) {
-                                            spawnModule.spawnsCreep('claim', 'medium')
+                                            if (claimboys.length < 0) {
+                                                spawnModule.spawnsCreep('claim', 'medium')
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
                     }
+
                 }
             }
         }
