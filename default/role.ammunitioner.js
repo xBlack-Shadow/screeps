@@ -33,8 +33,8 @@ let roleAmmunitioner = {
                 (structure.energy < structure.energyCapacity || structure.storage < structure.storeCapacity);
         }
         });
-            target.push();
-            target.sort();
+            //target.push();
+            //target.sort();
 
             if (target.length) {
                 if (creep.transfer(target[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
