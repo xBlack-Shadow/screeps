@@ -18,7 +18,7 @@ let roleAmmunitioner = {
 
         if (!creep.memory.harvesting) {
             let source = Game.getObjectById(creep.memory.source);
-            if (source.energy === 0) {
+            if (source.energy === 0){
                 source = creep.room.find(FIND_SOURCES)[1];
             }
             if (creep.harvest(source) === ERR_NOT_IN_RANGE) {
@@ -26,16 +26,20 @@ let roleAmmunitioner = {
             }
         }
         else {
-            let target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-                filter: (structure) => {
-                    return (
-                        structure.structureType === STRUCTURE_TOWER) &&
-                        (structure.energy < structure.energyCapacity || structure.storage < structure.storeCapacity);
-                }
-            });
-            if (creep.transfer(target, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(target);
+            let target = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                    return(
+                structure.structureType === STRUCTURE_TOWER) &&
+                (structure.energy < structure.energyCapacity || structure.storage < structure.storeCapacity);
+        }
+        });
+            target.push();
+            target.sort();
 
+            if (target.length) {
+                if (creep.transfer(target[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(target[0]);
+                }
             }
         }
     }
