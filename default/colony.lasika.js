@@ -32,7 +32,7 @@ let lasika = {
             } else {
                 let hostiles = spawn.room.find(FIND_HOSTILE_CREEPS);
                 if (hostiles.length !== 0) {
-                    if (ammunitionier.length < 2) {
+                    if (ammunitioner.length < 2) {
                         spawnModule.spawnsCreep('ammunitioner', 'big')
                     } else {
                         if (protectron.length < 4) {
