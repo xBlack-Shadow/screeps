@@ -48,19 +48,24 @@ let roleHarvester = {
                         (structure.energy < structure.energyCapacity || structure.storage < structure.storeCapacity);
                 }
             })
-            console.log(nearest.length);
+            console.log(nearest);
             target.push();
             target.sort();
             /*if (Game.getObjectById('59a5e3340f493b307691227a').store[RESOURCE_ENERGY] < Game.getObjectById('59a5e3340f493b307691227a').storeCapacity / 2) {
                 target.push(Game.getObjectById('59a5e3340f493b307691227a'));
             }*/
-
-            if (nearest.length) {
-                if (creep.transfer(nearest[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
-                    creep.moveTo(nearest[0]);
+            if(creep.room.energyAvailable < 5000){
+                if (creep.transfer(nearest, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(nearest);
+                }
+            } else{
+            if (target.length) {
+                if (creep.transfer(target[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(target[0]);
                 }
             } else {
                 roleNext.run(creep);
+            }
             }
         }
     }
