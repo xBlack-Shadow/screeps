@@ -19,7 +19,7 @@ let roleHarvester = {
 
         if (!creep.memory.harvesting) {
             let source = Game.getObjectById(creep.memory.source);
-            if (source.energy === 0){
+            if (source.energy === 0) {
                 source = creep.room.find(FIND_SOURCES)[0];
             }
             if (creep.harvest(source) === ERR_NOT_IN_RANGE) {
@@ -29,13 +29,24 @@ let roleHarvester = {
         else {
             let target = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
-                    return(structure.structureType === STRUCTURE_EXTENSION ||
-                structure.structureType === STRUCTURE_SPAWN ||
-                structure.structureType === STRUCTURE_TOWER ||
-                structure.structureType === STRUCTURE_STORAGE) &&
-                (structure.energy < structure.energyCapacity || structure.storage < structure.storeCapacity);
-        }
-        });
+                        return (structure.structureType === STRUCTURE_EXTENSION ||
+                            structure.structureType === STRUCTURE_SPAWN ||
+                            structure.structureType === STRUCTURE_TOWER ||
+                            structure.structureType === STRUCTURE_STORAGE) &&
+                            (structure.energy < structure.energyCapacity || structure.storage < structure.storeCapacity);
+                    }
+                }
+            );
+            console.log(creep.pos.findClosestByRange(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType === STRUCTURE_EXTENSION ||
+                            structure.structureType === STRUCTURE_SPAWN ||
+                            structure.structureType === STRUCTURE_TOWER ||
+                            structure.structureType === STRUCTURE_STORAGE) &&
+                            (structure.energy < structure.energyCapacity || structure.storage < structure.storeCapacity);
+                    }
+                })
+            );
             target.push();
             target.sort();
             /*if (Game.getObjectById('59a5e3340f493b307691227a').store[RESOURCE_ENERGY] < Game.getObjectById('59a5e3340f493b307691227a').storeCapacity / 2) {
