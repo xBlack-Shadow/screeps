@@ -29,13 +29,13 @@ let lasika = {
             if (upgraders.length < 1) {
                 spawnModule.spawnsCreep('upgrader', '');
             } else {
-                if (builders.length < 1) {
-                    spawnModule.spawnsCreep('builder', 'big');
+                let hostiles = spawn.room.find(FIND_HOSTILE_CREEPS);
+                if (hostiles.length !== 0 && protectron.length < 4) {
+                    spawnModule.spawnsCreep('protectron', 'scout');
                 } else {
-                    let hostiles = spawn.room.find(FIND_HOSTILE_CREEPS);
-                    if (hostiles.length !== 0 && protectron.length < 4) {
-                        spawnModule.spawnsCreep('protectron', 'scout');
-                    }else{
+                    if (builders.length < 1) {
+                        spawnModule.spawnsCreep('builder', 'big');
+                    } else {
                         if (fixers.length < 3) {
                             spawnModule.spawnsCreep('fixer', 'medium');
                         } else {
@@ -54,7 +54,7 @@ let lasika = {
                                         } else {
                                             let terminal = spawn.room.find(FIND_STRUCTURES, {
                                                 filter: (structure) => {
-                                                    return(structure.structureType === STRUCTURE_TERMINAL)
+                                                    return (structure.structureType === STRUCTURE_TERMINAL)
                                                 }
                                             })[0];
                                             if (trader.length < 1 && terminal.store.energy <= 50000) {
