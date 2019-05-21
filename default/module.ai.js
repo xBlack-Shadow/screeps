@@ -13,6 +13,7 @@ let ai = {
         let roleOut = require('role.out');
         let roleTrader = require('role.trader');
         let roleProtectron = require('role.protectron');
+        let roleAmmunitioner = require('role.ammunitioner');
         
         
         for(let name in Game.creeps) {
@@ -50,6 +51,9 @@ let ai = {
                     break;
                 case 'protectron':
                     roleProtectron.run(creep);
+                    break;
+                case 'ammunitioner':
+                    roleAmmunitioner.run(creep);
                     break;
             }
         }

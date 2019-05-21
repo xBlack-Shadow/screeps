@@ -19,6 +19,7 @@ let lasika = {
         let claimboys = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'claim');
         let trader = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'trader');
         let protectron = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'protectron');
+        let ammunitioner = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'ammunitioner');
 
         if (harvesters.length < 3) {
             if (spawn.room.energyAvailable < 1000) {
@@ -30,8 +31,14 @@ let lasika = {
                 spawnModule.spawnsCreep('upgrader', '');
             } else {
                 let hostiles = spawn.room.find(FIND_HOSTILE_CREEPS);
-                if (hostiles.length !== 0 && protectron.length < 4) {
-                    spawnModule.spawnsCreep('protectron', 'scout');
+                if (hostiles.length !== 0) {
+                    if (ammunitionier.length < 2) {
+                        spawnModule.spawnsCreep('ammunitioner', 'big')
+                    } else {
+                        if (protectron.length < 4) {
+                            spawnModule.spawnsCreep('protectron', 'scout');
+                        }
+                    }
                 } else {
                     if (builders.length < 1) {
                         spawnModule.spawnsCreep('builder', 'big');
