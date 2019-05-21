@@ -37,6 +37,7 @@ let roleHarvester = {
                     }
                 }
             );
+            console.log(target);
             console.log(creep.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType === STRUCTURE_EXTENSION ||
