@@ -56,8 +56,8 @@ let roleHarvester = {
             }*/
 
             if (nearest.length) {
-                if (creep.transfer(target[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
-                    creep.moveTo(target[0]);
+                if (creep.transfer(nearest[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(nearest[0]);
                 }
             } else {
                 roleNext.run(creep);
