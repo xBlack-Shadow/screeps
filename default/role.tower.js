@@ -13,10 +13,10 @@ let roleTower = {
                     return (
                         structure.structureType === STRUCTURE_ROAD ||
                         structure.structureType === STRUCTURE_RAMPART) &&
-                        structure.hits < structure.hitsMax
+                        structure.hits < structure.hitsMax / 2
                 }
             });
-            if (hostiles) {
+            if (hostiles.length) {
                 towers.forEach(tower => tower.attack(hostiles[0]));
             } else {
                 towers.forEach(function (tower) {
