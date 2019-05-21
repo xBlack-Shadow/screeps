@@ -26,7 +26,7 @@ let roleAmmunitioner = {
             }
         }
         else {
-            let target = creep.room.find(FIND_STRUCTURES, {
+            let target = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => {
                     return(
                 structure.structureType === STRUCTURE_TOWER) &&
