@@ -5,6 +5,7 @@ let aiModule = require('module.ai');
 let clearModule = require('module.clear');
 let marketModule = require('module.market');
 let colonyLasika = require('colony.lasika');
+let colonyTherrial = require('colony.therrial');
 
 // Any modules that you use that modify the game's prototypes should be require'd
 // before you require the profiler.
@@ -46,7 +47,7 @@ module.exports.loop = function () {
             default:
         }
 
-        //colonyGyenos.live();
+        colonyTherrial.live();
         colonyLasika.live();
         aiModule.defendTowers();
         aiModule.runCreeps();
