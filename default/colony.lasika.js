@@ -68,7 +68,7 @@ let lasika = {
                                                 spawnModule.spawnsCreep('trader', 'big');
                                             }
                                             if (claimboys.length < 0) {
-                                                spawnModule.spawnsCreep('claim', 'medium')
+                                                spawnModule.spawnsCreep('claim', 'claim')
                                             }
                                         }
                                     }
