@@ -7,7 +7,7 @@ let roleBuilder = {
         
         let roleNext = require('role.roadster');
         _.forEach(Game.rooms, room => {
-            console.log(room);
+            console.log(room.find(FIND_CONSTRUCTION_SITES));
         });
         let targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
         
