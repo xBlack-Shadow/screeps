@@ -12,11 +12,11 @@
 //TODO: Body grÃ¶Ãe irgendwie staffeln und nach AbhÃ¤ngigkeit der Vorhandenen Energy spawnwn
 
 let spawn = {
-    spawnToUse: function(){
+    spawnToUse: function(thisRoom){
         let result = undefined;
         for(const i in Memory.spawns) {
             let current = Game.getObjectById(Memory.spawns[i]);
-            if (current.spawning == null) {
+            if (current.spawning == null && current.room === thisRoom) {
                 result = current;
             }
         }
@@ -72,9 +72,9 @@ let spawn = {
         return bodyArray;
     },
 
-    spawnsCreep: function (objective, body) {
+    spawnsCreep: function (objective, body, spawnRoom) {
         let random = Math.floor((Math.random() * 100) + 1);
-        let spawn = this.spawnToUse();
+        let spawn = this.spawnToUse(spawnRoom);
         if(spawn !== undefined) {
             switch (spawn.spawnCreep(this.getCreepBody(body), 'test', {dryRun: true})) {
                 case ERR_NOT_ENOUGH_ENERGY:

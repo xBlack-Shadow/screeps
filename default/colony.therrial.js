@@ -23,41 +23,41 @@ let lasika = {
 
         if (harvesters.length < 2) {
             if (spawn.room.energyAvailable < 1000) {
-                spawnModule.spawnsCreep('harvester', '');
+                spawnModule.spawnsCreep('harvester', '', spawn.room);
             }
-            spawnModule.spawnsCreep('harvester', 'big');
+            spawnModule.spawnsCreep('harvester', 'big', spawn.room);
         } else {
             if (upgraders.length < 1) {
-                spawnModule.spawnsCreep('upgrader', '');
+                spawnModule.spawnsCreep('upgrader', '', spawn.room);
             } else {
                 let hostiles = spawn.room.find(FIND_HOSTILE_CREEPS);
                 if (hostiles.length !== 0) {
                     if (ammunitioner.length < 0) {
-                        spawnModule.spawnsCreep('ammunitioner', 'big')
+                        spawnModule.spawnsCreep('ammunitioner', 'big', spawn.room)
                     } else {
                         if (protectron.length < 0) {
-                            spawnModule.spawnsCreep('protectron', 'scout');
+                            spawnModule.spawnsCreep('protectron', 'scout', spawn.room);
                         }
                     }
                 } else {
                     if (builders.length < 1) {
-                        spawnModule.spawnsCreep('builder', 'big');
+                        spawnModule.spawnsCreep('builder', 'big', spawn.room);
                     } else {
                         if (fixers.length < 0) {
-                            spawnModule.spawnsCreep('fixer', 'medium');
+                            spawnModule.spawnsCreep('fixer', 'medium', spawn.room);
                         } else {
                             if (roadsters.length < 0) {
-                                spawnModule.spawnsCreep('roadster', 'big');
+                                spawnModule.spawnsCreep('roadster', 'big', spawn.room);
                             } else {
                                 if (rampsters.length < 0) {
-                                    spawnModule.spawnsCreep('rampster', 'medium');
+                                    spawnModule.spawnsCreep('rampster', 'medium', spawn.room);
                                 } else {
                                     if (scouts.length < 0) {
-                                        spawnModule.spawnsCreep('scout', 'medium');
+                                        spawnModule.spawnsCreep('scout', 'medium', spawn.room);
                                     } else {
                                         let minerals = spawn.room.find(FIND_MINERALS);
                                         if (outers.length < 1 && minerals[0].mineralAmount !== 0) {
-                                            spawnModule.spawnsCreep('out', 'out');
+                                            spawnModule.spawnsCreep('out', 'out', spawn.room);
                                         } else {
                                             let terminal = spawn.room.find(FIND_STRUCTURES, {
                                                 filter: (structure) => {
@@ -65,10 +65,10 @@ let lasika = {
                                                 }
                                             })[0];
                                             if (trader.length < 0 && terminal.store.energy <= 50000) {
-                                                spawnModule.spawnsCreep('trader', 'big');
+                                                spawnModule.spawnsCreep('trader', 'big', spawn.room);
                                             }
                                             if (claimboys.length < 0) {
-                                                spawnModule.spawnsCreep('claim', 'claim')
+                                                spawnModule.spawnsCreep('claim', 'claim', spawn.room)
                                             }
                                         }
                                     }
