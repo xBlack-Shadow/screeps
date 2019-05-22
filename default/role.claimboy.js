@@ -12,10 +12,11 @@ let roleClaim = {
         console.log(creep.claimController(target));
         if (creep.pos !== targetPos) {
             creep.moveTo(targetPos);
-        }
-        if (creep.claimController(target) === ERR_NOT_IN_RANGE) {
-            creep.moveTo(target);
-            console.log(target);
+        } else {
+            if (creep.claimController(target) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(target);
+                console.log(target);
+            }
         }
     }
 };
