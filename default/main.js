@@ -24,6 +24,14 @@ module.exports.loop = function () {
             }
             Memory.spawns = spawns;
         }
+        if (Memory.rooms === undefined) {
+            let rooms = [];
+            for (let i in Game.rooms) {
+                console.log('save' + Game.rooms[i] + ' RoomName to Memory');
+                rooms.push(Game.rooms[i].roomName);
+            }
+            Memory.rooms = rooms;
+        }
 
         logModule.log();
 
