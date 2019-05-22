@@ -6,7 +6,10 @@ let roleBuilder = {
     run: function(creep) {
         
         let roleNext = require('role.roadster');
-        
+        let rooms = Game.rooms;
+        rooms.forEach(function(room){
+            console.log(room);
+        })
         let targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
         
         if(creep.memory.source === undefined)
