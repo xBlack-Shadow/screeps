@@ -4,7 +4,7 @@ let roleClaim = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        let target = Game.getObjectById('577b92b60f9d51615fa46f8c');
+        let target = Game.getObjectById('5bbcab669099fc012e6336fd');
         let targetPos = new RoomPosition(25, 25, 'W28S27');
         console.log(target);
         console.log(creep.pos);
