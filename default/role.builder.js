@@ -32,7 +32,8 @@ let roleBuilder = {
                     creep.moveTo(targets/*[0]*/);
                 }
             } else {
-                creep.moveTo(new RoomPosition(25, 25, 'W28S27'));
+                //creep.moveTo(new RoomPosition(25, 25, 'W28S27'));
+                roleNext.run(creep);
             }
         }
         else {
