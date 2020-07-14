@@ -9,14 +9,15 @@
 
 'use strict';
 
-//TODO: Staffelung dÃ¼r die Walls einbauen
+//TODO: Staffelung dÃÂ¼r die Walls einbauen
 
 let roleFixer = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
 
-        let roleUpgrader = require('role.upgrader');
+        let roleUpgrader = require('default/role.upgrader');
+        let roleBuilder = require('default/role.builder');
 
         if(creep.memory.fixing && creep.carry.energy === 0) {
             creep.memory.fixing = false;
@@ -30,7 +31,7 @@ let roleFixer = {
                 filter: (structure) => {
                     return (structure.structureType === STRUCTURE_RAMPART ||
                         structure.structureType === STRUCTURE_WALL) &&
-                        structure.hits < 3000000
+                        structure.hits < 50000
                 }
             });
             if(targets.length) {
@@ -42,6 +43,9 @@ let roleFixer = {
                 if(creep.room.controller.level !== 8)
                 {
                     roleUpgrader.run(creep);
+                }
+                else{
+                    roleBuilder.run(creep);
                 }
             }
         }else {

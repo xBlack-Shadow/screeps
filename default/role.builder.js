@@ -5,7 +5,7 @@ let roleBuilder = {
     /** @param {Creep} creep **/
     run: function (creep) {
 
-        let roleNext = require('role.roadster');
+        let roleNext = require('default/role.roadster');
         let targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
 
         if (creep.memory.source === undefined) {

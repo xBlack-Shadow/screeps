@@ -3,7 +3,7 @@
 let lasika = {
 
     live: function () {
-        let spawnModule = require('module.spawn');
+        let spawnModule = require('default/module.spawn');
         let spawn = Game.spawns['Therrial'];
         //let lasikaCreeps2 = spawn.room.find(FIND_MY_CREEPS); // Alle Creeps die aktuell existieren
         let lasikaCreeps = _.filter(Game.creeps, (creep) => creep.room.name === spawn.room.name); //Alle Creeps + Creeps die gespawnt werden
@@ -21,7 +21,7 @@ let lasika = {
         let protectron = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'protectron');
         let ammunitioner = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'ammunitioner');
 
-        if (harvesters.length < 2) {
+        if (harvesters.length < 3) {
             if (spawn.room.energyAvailable < 1000) {
                 spawnModule.spawnsCreep('harvester', '', spawn.room);
             }
@@ -40,13 +40,13 @@ let lasika = {
                         }
                     }
                 } else {
-                    if (builders.length < 1) {
-                        spawnModule.spawnsCreep('builder', 'big', spawn.room);
+                    if (builders.length < 2) {
+                        spawnModule.spawnsCreep('builder', '', spawn.room);
                     } else {
-                        if (fixers.length < 0) {
+                        if (fixers.length < 1) {
                             spawnModule.spawnsCreep('fixer', 'medium', spawn.room);
                         } else {
-                            if (roadsters.length < 0) {
+                            if (roadsters.length < 1) {
                                 spawnModule.spawnsCreep('roadster', 'big', spawn.room);
                             } else {
                                 if (rampsters.length < 0) {
@@ -56,7 +56,7 @@ let lasika = {
                                         spawnModule.spawnsCreep('scout', 'medium', spawn.room);
                                     } else {
                                         let minerals = spawn.room.find(FIND_MINERALS);
-                                        if (outers.length < 1 && minerals[0].mineralAmount !== 0) {
+                                        if (outers.length < 0 && minerals[0].mineralAmount !== 0) {
                                             spawnModule.spawnsCreep('out', 'out', spawn.room);
                                         } else {
                                             let terminal = spawn.room.find(FIND_STRUCTURES, {

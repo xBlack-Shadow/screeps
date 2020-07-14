@@ -8,6 +8,9 @@ let clear = {
                 delete Memory.creeps[name];
             }
         }
+    },
+    clearSpawnMemory: function(){
+        Memory.spawns = undefined;
     }
 };
 

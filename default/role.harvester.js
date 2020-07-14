@@ -4,7 +4,7 @@ let roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        let roleNext = require('role.builder');
+        let roleNext = require('default/role.builder');
         if (creep.memory.source === undefined) {
             let sources = creep.room.find(FIND_SOURCES);
             creep.memory.source = sources[1].id;

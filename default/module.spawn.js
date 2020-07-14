@@ -9,7 +9,7 @@
 
 'use strict';
 
-//TODO: Body grÃ¶Ãe irgendwie staffeln und nach AbhÃ¤ngigkeit der Vorhandenen Energy spawnwn
+//TODO: Body grÃÂ¶ÃÂe irgendwie staffeln und nach AbhÃÂ¤ngigkeit der Vorhandenen Energy spawnwn
 
 let spawn = {
     spawnToUse: function(thisRoom){
