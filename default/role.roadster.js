@@ -13,7 +13,7 @@
 
     /** @param {Creep} creep **/
     run: function(creep) {
-        let roleUpgrader = require('default/role.upgrader');
+        let roleUpgrader = require('role.upgrader');
         if(creep.memory.fixing && creep.carry.energy === 0) {
             creep.say('collecting');
             creep.memory.fixing = false;

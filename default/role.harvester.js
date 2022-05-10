@@ -4,10 +4,10 @@ let roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        let roleNext = require('default/role.builder');
+        let roleNext = require('role.builder');
         if (creep.memory.source === undefined) {
-            let sources = creep.room.find(FIND_SOURCES);
-            creep.memory.source = sources[1].id;
+            let sources = creep.room.find(FIND_SOURCES_ACTIVE);
+            creep.memory.source = sources[0].id;
         }
 
         if (creep.memory.harvesting && creep.carry.energy === 0) {
@@ -43,7 +43,7 @@ let roleHarvester = {
                         structure.structureType === STRUCTURE_SPAWN ||
                         structure.structureType === STRUCTURE_TOWER ||
                         structure.structureType === STRUCTURE_STORAGE) &&
-                        (structure.energy < structure.energyCapacity || structure.storage < structure.storeCapacity);
+                        (structure.energy < structure.energyCapacity || structure.store[RESOURCE_ENERGY] < structure.storeCapacity / 2);
                 }
             });
 
@@ -52,7 +52,7 @@ let roleHarvester = {
             /*if (Game.getObjectById('59a5e3340f493b307691227a').store[RESOURCE_ENERGY] < Game.getObjectById('59a5e3340f493b307691227a').storeCapacity / 2) {
                 target.push(Game.getObjectById('59a5e3340f493b307691227a'));
             }*/
-            if (creep.room.energyAvailable < 5000) {
+            if (creep.room.energyAvailable > 5000) {
                 if (creep.transfer(nearest, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(nearest);
                 }

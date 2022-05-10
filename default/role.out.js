@@ -4,23 +4,29 @@ let roleOut = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-        let otherTarget = creep.room.find(FIND_STRUCTURES, {
-                filter: (structure) => {
-                    return (structure.structureType === STRUCTURE_TERMINAL)
-                }
-        });
+        let targetTerminal = creep.room.find(FIND_STRUCTURES, {
+            filter: (structure) => {
+                return (structure.structureType === STRUCTURE_TERMINAL)
+            }
+        })
+        if(!targetTerminal.length){
+            console.log('Terminal existiert nicht.');
+            let roleBuilder = require('role.builder');
+            roleBuilder.run(creep);
+        };
+        
         if(creep.memory.source === undefined){
             let sources = creep.room.find(FIND_MINERALS);
             creep.memory.source = sources[0].id;
         }
-        if(creep.memory.target === undefined){
-            console.log(otherTarget[0].id);
-            creep.memory.target = otherTarget[0].id;
+        if(creep.memory.target === undefined && targetTerminal.length){
+            console.log(targetTerminal[0].id);
+            creep.memory.target = targetTerminal[0].id;
         }
-        if(!creep.memory.harvesting && creep.carry.H === undefined) {
+        if(!creep.memory.harvesting && creep.store[RESOURCE_CATALYST] < creep.store.getCapacity()) {
             creep.memory.harvesting = true;
 	    }
-	    if(creep.memory.harvesting && creep.carry.H === creep.carryCapacity) {
+	    if(creep.memory.harvesting && creep.carry.X === creep.carryCapacity) {
 	        creep.memory.harvesting = false;
 	    }
         
@@ -33,8 +39,8 @@ let roleOut = {
         else {
             if(creep.memory.target){
                 let target = Game.getObjectById(creep.memory.target);
-                creep.transfer(target, RESOURCE_HYDROGEN);
-                if(creep.transfer(target, RESOURCE_HYDROGEN) === ERR_NOT_IN_RANGE || creep.transfer(target, RESOURCE_HYDROGEN) === ERR_INVALID_TARGET) {
+                creep.transfer(target, RESOURCE_CATALYST);
+                if(creep.transfer(target, RESOURCE_CATALYST) === ERR_NOT_IN_RANGE || creep.transfer(target, RESOURCE_CATALYST) === ERR_INVALID_TARGET) {
                     creep.moveTo(target);
                 }
             }

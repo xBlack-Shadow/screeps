@@ -4,22 +4,31 @@ let roleClaim = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        let target = Game.getObjectById('5bbcab669099fc012e6336fd');
-        let targetPos = new RoomPosition(25, 25, 'W28S27');
-        let count = 0;
-        console.log(count);
+        if(creep.memory.onDestination === undefined){
+            creep.memory.onDestination = false;
+        }
+        if(creep.room.name === 'E44S49'){
+            let roleNext = require('role.upgrader');
+            roleNext.run(creep);
+            //creep.moveTo(Game.flags['claim'])
+        }else{
+        let target = Game.getObjectById('59830073b097071b4adc4511');
+        let targetPos = new RoomPosition(43, 6, 'E44S49');
+        
+        console.log(creep.memory.onDestination);
         console.log(target);
         console.log(creep.pos);
         console.log(targetPos);
         console.log(creep.claimController(target));
-        if (count === 0 && creep.pos !== targetPos) {
+        if (!creep.memory.onDestination && creep.pos !== targetPos) {
             creep.moveTo(targetPos);
         } else {
-            count = 1;
+            creep.memory.onDestination = true;
             if (creep.claimController(target) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
                 console.log(target);
             }
+        }
         }
     }
 };

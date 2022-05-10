@@ -2,18 +2,20 @@
 
 let ai = {
     runCreeps: function(){
-        let roleHarvester = require('default/role.harvester');
-        let roleUpgrader = require('default/role.upgrader');
-        let roleBuilder = require('default/role.builder');
-        let roleFixer = require('default/role.fixer');
-        let roleRoadster = require('default/role.roadster');
-        let roleRampster = require('default/role.rampster');
-        let roleScout = require('default/role.scout');
-        let roleClaim = require('default/role.claimboy');
-        let roleOut = require('default/role.out');
-        let roleTrader = require('default/role.trader');
-        let roleProtectron = require('default/role.protectron');
-        let roleAmmunitioner = require('default/role.ammunitioner');
+        let roleHarvester = require('role.harvester');
+        let roleUpgrader = require('role.upgrader');
+        let roleBuilder = require('role.builder');
+        let roleFixer = require('role.fixer');
+        let roleRoadster = require('role.roadster');
+        let roleRampster = require('role.rampster');
+        let roleScout = require('role.scout');
+        let roleClaim = require('role.claimboy');
+        let roleOut = require('role.out');
+        let roleTrader = require('role.trader');
+        let roleProtectron = require('role.protectron');
+        let roleAmmunitioner = require('role.ammunitioner');
+        let roleWarrior = require('role.warrior');
+        let roleArcher = require('role.archer');
         
         
         for(let name in Game.creeps) {
@@ -55,12 +57,18 @@ let ai = {
                 case 'ammunitioner':
                     roleAmmunitioner.run(creep);
                     break;
+                case 'warrior':
+                    roleWarrior.run(creep);
+                    break;
+                case 'archer':
+                    roleArcher.run(creep);
+                    break;    
             }
         }
     },
     
     defendTowers: function(){
-        let roleTower = require('default/role.tower');
+        let roleTower = require('role.tower');
         roleTower.defendLasika();
     }
 };

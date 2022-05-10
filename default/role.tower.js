@@ -3,7 +3,7 @@
 let roleTower = {
 
     defendLasika: function () {
-        let spawn = Game.spawns['L'];
+        let spawn = Game.spawns['Lasika'];
         let towers = spawn.room.find(
             FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
         if (towers) {

@@ -27,10 +27,10 @@ let log = {
             ' Claimboys: ' + claimboys.length +
             ' Trader: ' + trader.length +
             ' Rampster: ' + rampsters.length + ' |' +
-            ' Energy Lasika: ' + Game.spawns['L'].room.energyAvailable + ' / ' +
-            Game.spawns['L'].room.energyCapacityAvailable + ' |' /*+
+            ' Energy Lasika: ' + Game.spawns['Lasika'].room.energyAvailable + ' / ' +
+            Game.spawns['Lasika'].room.energyCapacityAvailable + ' |' +
             ' Energy Therrial: ' + Game.spawns['Therrial'].room.energyAvailable + ' / ' +
-            Game.spawns['Therrial'].room.energyCapacityAvailable + ' |'*/);
+            Game.spawns['Therrial'].room.energyCapacityAvailable + ' |');
         console.log(points);
 
         Memory.spawns.forEach(function (spawnID) {

@@ -16,8 +16,10 @@ let roleFixer = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
-        let roleUpgrader = require('default/role.upgrader');
-        let roleBuilder = require('default/role.builder');
+        let roleUpgrader = require('role.upgrader');
+        let roleBuilder = require('role.builder');
+        
+        let wallHitpoints = 100000
 
         if(creep.memory.fixing && creep.carry.energy === 0) {
             creep.memory.fixing = false;
@@ -31,15 +33,16 @@ let roleFixer = {
                 filter: (structure) => {
                     return (structure.structureType === STRUCTURE_RAMPART ||
                         structure.structureType === STRUCTURE_WALL) &&
-                        structure.hits < 50000
+                        structure.hits < wallHitpoints
                 }
             });
             if(targets.length) {
                 if(creep.repair(targets[0]) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
                 }
+                console.log('Damaged Walls in ' + creep.room.name);
             }else{
-                console.log('keine Walls unter 100000000 hits');
+                
                 if(creep.room.controller.level !== 8)
                 {
                     roleUpgrader.run(creep);

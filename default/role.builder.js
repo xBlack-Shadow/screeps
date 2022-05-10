@@ -5,12 +5,13 @@ let roleBuilder = {
     /** @param {Creep} creep **/
     run: function (creep) {
 
-        let roleNext = require('default/role.roadster');
+        let roleNext = require('role.roadster');
         let targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
 
         if (creep.memory.source === undefined) {
             let daSources = creep.room.find(FIND_SOURCES_ACTIVE);
             creep.memory.source = daSources[0].id;
+            //creep.memory.source = Game.getObjectById('59830073b097071b4adc4513');
         }
 
         if (creep.memory.building && creep.carry.energy === 0) {

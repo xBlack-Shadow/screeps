@@ -4,7 +4,6 @@ let roleUpgrader = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-
         if(creep.memory.upgrading && creep.carry.energy === 0) {
             creep.memory.upgrading = false;
 	    }
@@ -17,8 +16,7 @@ let roleUpgrader = {
             if(creep.upgradeController(controller1) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(controller1);
             }
-        }
-        else {
+        } else {
             let sources = creep.pos.findClosestByRange(FIND_SOURCES);
             if(creep.harvest(sources) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources);
