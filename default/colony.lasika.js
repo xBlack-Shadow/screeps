@@ -5,7 +5,17 @@ let lasika = {
     live: function () {
         let spawnModule = require('module.spawn');
         let spawn = Game.spawns['Lasika'];
-        //let lasikaCreeps2 = spawn.room.find(FIND_MY_CREEPS); // Alle Creeps die aktuell existieren
+        
+        if(Memory.colony === undefined || Memory.colony.lasika === undefined){
+            console.log('create Colony');
+            let sources = [];
+            spawn.room.find(FIND_SOURCES).forEach(function(element){
+                sources.push(element.id);
+            })
+            //Object.assign(Memory.colony, {'lasika' : {'sources' : sources}});
+            Memory.colony = {'lasika' : {'sources' : sources}};
+        }
+        
         let lasikaCreeps = _.filter(Game.creeps, (creep) => creep.room.name === spawn.room.name); //Alle Creeps + Creeps die gespawnt werden
 
         let harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'harvester');
@@ -21,11 +31,11 @@ let lasika = {
         let protectron = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'protectron');
         let ammunitioner = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'ammunitioner');
         
-        if (harvesters.length < 4) {
-            if (spawn.room.energyAvailable < 1000) {
+        if (harvesters.length < 3) {
+            if (spawn.room.energyAvailable < 2550) {
                 spawnModule.spawnsCreep('harvester', '', spawn.room);
             }
-            spawnModule.spawnsCreep('harvester', 'big', spawn.room);
+            spawnModule.spawnsCreep('harvester', 'heavy', spawn.room);
         } else {
             if (upgraders.length < 1) {
                 if (spawn.room.energyAvailable < 1000) {
@@ -43,11 +53,11 @@ let lasika = {
                         }
                     }
                 } else {
-                    if (builders.length < 2) {
+                    if (builders.length < 0) {
                         if (spawn.room.energyAvailable < 1000) {
                         spawnModule.spawnsCreep('builder', '', spawn.room);
                         }
-                        spawnModule.spawnsCreep('builder', 'big', spawn.room);
+                        spawnModule.spawnsCreep('builder', 'heavy', spawn.room);
                     } else {
                         if (fixers.length < 1) {
                             spawnModule.spawnsCreep('fixer', 'medium', spawn.room);
@@ -74,7 +84,7 @@ let lasika = {
                                                 spawnModule.spawnsCreep('trader', 'big', spawn.room);
                                             }
                                             if (claimboys.length < 0) {
-                                                spawnModule.spawnsCreep('claim', 'claim', spawn.room)
+                                                spawnModule.spawnsCreep('claim', 'big', spawn.room)
                                             }
                                         }
                                     }

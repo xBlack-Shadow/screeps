@@ -1,17 +1,13 @@
-/*
- * Module code goes here. Use 'module.exports' to export things:
- * module.exports.thing = 'a thing';
- *
- * You can import it from another modules like this:
- * let mod = require('role.fixer');
- * mod.thing == 'a thing'; // true
- */
-
 'use strict';
 
-//TODO: Staffelung dÃÂ¼r die Walls einbauen
-
 let roleFixer = {
+    wallHitSteps : {
+        'step1' : 500,
+        'step2' : 1000,
+        'step3' : 10000,
+        'step4' : 50000,
+        'step5' : 100000,
+    },
 
     /** @param {Creep} creep **/
     run: function(creep) {
@@ -19,7 +15,8 @@ let roleFixer = {
         let roleUpgrader = require('role.upgrader');
         let roleBuilder = require('role.builder');
         
-        let wallHitpoints = 100000
+        let currentStep = 'step2'
+        let wallHitpoints = this.wallHitSteps[currentStep];
 
         if(creep.memory.fixing && creep.carry.energy === 0) {
             creep.memory.fixing = false;
@@ -57,6 +54,10 @@ let roleFixer = {
                 creep.moveTo(sources);
             }
         }
+    },
+    
+    checkCurrentStep : function() {
+        
     }
 };
 

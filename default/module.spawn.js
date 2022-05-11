@@ -1,17 +1,25 @@
-/*
- * Module code goes here. Use 'module.exports' to export things:
- * module.exports.thing = 'a thing';
- *
- * You can import it from another modules like this:
- * let mod = require('module.spawn');
- * mod.thing == 'a thing'; // true
- */
-
 'use strict';
 
-//TODO: Body grÃÂ¶ÃÂe irgendwie staffeln und nach AbhÃÂ¤ngigkeit der Vorhandenen Energy spawnwn
-
 let spawn = {
+    spawnsCreep: function (objective, body, spawnRoom) {
+        let random = Math.floor((Math.random() * 100) + 1);
+        let spawn = this.spawnToUse(spawnRoom);
+        if(spawn !== undefined) {
+            console.log(spawnRoom.energyAvailable);
+            switch (spawn.spawnCreep(this.getCreepBody(body), 'test', {dryRun: true})) {
+                case ERR_NOT_ENOUGH_ENERGY:
+                    console.log('['+spawn.name+']Not enought Energy to spawn ' + objective);
+                    break;
+                case ERR_BUSY:
+                    console.log(spawn.name + ' running spawn');
+                    break;
+                default:
+                    spawn.spawnCreep(this.getCreepBody(body), objective + random, {memory: {role: objective}});
+                    break;
+            }
+        }
+    },
+    
     spawnToUse: function(thisRoom){
         let result = undefined;
         for(const i in Memory.spawns) {
@@ -44,9 +52,9 @@ let spawn = {
                 // Cost: 1000+
                 bodyArray = [WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
                 break;
-            case 'out':
-                // Cost: 2550
-                bodyArray = [WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+            case 'heavy':
+                // Cost: 3500
+                bodyArray = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
                 break;
             case 'protectron':
                 bodyArray = [ATTACK, ATTACK, MOVE, MOVE];
@@ -61,7 +69,8 @@ let spawn = {
                 bodyArray = [HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, HEAL, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
                 break;
             case 'claim':
-                bodyArray = [CLAIM, MOVE];
+                // Cost: 9.75K
+                bodyArray = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM,CLAIM];
                 break;
             default:
                 // Cost: 300
@@ -72,23 +81,7 @@ let spawn = {
         return bodyArray;
     },
 
-    spawnsCreep: function (objective, body, spawnRoom) {
-        let random = Math.floor((Math.random() * 100) + 1);
-        let spawn = this.spawnToUse(spawnRoom);
-        if(spawn !== undefined) {
-            switch (spawn.spawnCreep(this.getCreepBody(body), 'test', {dryRun: true})) {
-                case ERR_NOT_ENOUGH_ENERGY:
-                    console.log('['+spawn.name+']Not enought Energy to spawn ' + objective);
-                    break;
-                case ERR_BUSY:
-                    console.log(spawn.name + ' running spawn');
-                    break;
-                default:
-                    spawn.spawnCreep(this.getCreepBody(body), objective + random, {memory: {role: objective}});
-                    break;
-            }
-        }
-    },
+    
 };
 
 module.exports = spawn;

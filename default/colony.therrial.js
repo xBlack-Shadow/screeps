@@ -5,7 +5,17 @@ let therrial = {
     live: function () {
         let spawnModule = require('module.spawn');
         let spawn = Game.spawns['Therrial'];
-        //let lasikaCreeps2 = spawn.room.find(FIND_MY_CREEPS); // Alle Creeps die aktuell existieren
+        
+        if(Memory.colony === undefined || Memory.colony.therrial === undefined){
+            console.log('create Colony');
+            let sources = [];
+            spawn.room.find(FIND_SOURCES).forEach(function(element){
+                sources.push(element.id);
+            })
+            Object.assign(Memory.colony, {'therrial' : {'sources' : sources}});
+            //Memory.colony = {'therrial' : {'sources' : sources}};
+        }
+        
         let lasikaCreeps = _.filter(Game.creeps, (creep) => creep.room.name === spawn.room.name); //Alle Creeps + Creeps die gespawnt werden
 
         let harvesters = _.filter(lasikaCreeps, (creep) => creep.memory.role === 'harvester');
@@ -26,7 +36,7 @@ let therrial = {
             if (spawn.room.energyAvailable < 1000) {
                 spawnModule.spawnsCreep('harvester', '', spawn.room);
             }
-            spawnModule.spawnsCreep('harvester', 'big', spawn.room);
+            spawnModule.spawnsCreep('harvester', 'heavy', spawn.room);
         } else {
             if (upgraders.length < 1) {
                 spawnModule.spawnsCreep('upgrader', '', spawn.room);
@@ -41,13 +51,13 @@ let therrial = {
                         }
                     }
                 } else {
-                    if (builders.length < 2) {
-                        if (spawn.room.energyAvailable < 1000) {
+                    if (builders.length < 1) {
+                        if (spawn.room.energyAvailable < 2550) {
                 spawnModule.spawnsCreep('builder', '', spawn.room);
             }
-                        spawnModule.spawnsCreep('builder', 'big', spawn.room);
+                        spawnModule.spawnsCreep('builder', 'heavy', spawn.room);
                     } else {
-                        if (fixers.length < 0) {
+                        if (fixers.length < 1) {
                             spawnModule.spawnsCreep('fixer', 'medium', spawn.room);
                         } else {
                             if (roadsters.length < 0) {
