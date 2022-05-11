@@ -1,35 +1,33 @@
-'use strict';
+const roleUpgrader = {
+  creep: null,
 
-let roleUpgrader = {
-    creep: null,
+  /** @param {Creep} creep * */
+  run(creep) {
+    this.creep = creep;
+    this.setState();
+	    const controller1 = creep.room.controller;
 
-    /** @param {Creep} creep **/
-    run: function(creep) {
-        this.creep = creep;
-        this.setState();
-	    let controller1 = creep.room.controller;
+	    if (!creep.memory.isHarvesting) {
+      if (creep.upgradeController(controller1) === ERR_NOT_IN_RANGE) {
+        creep.moveTo(controller1);
+      }
+    } else {
+      const sources = creep.pos.findClosestByRange(FIND_SOURCES);
+      if (creep.harvest(sources) === ERR_NOT_IN_RANGE) {
+        creep.moveTo(sources);
+      }
+    }
+  },
 
-	    if(!creep.memory.isHarvesting) {
-            if(creep.upgradeController(controller1) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(controller1);
-            }
-        } else {
-            let sources = creep.pos.findClosestByRange(FIND_SOURCES);
-            if(creep.harvest(sources) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources);
-            }
-        }
-	},
-	
-	setState: function(state = true) {
-        if(!this.creep.memory.isHarvesting && this.creep.carry.energy > 0) {
-            return;
-        }
-        if (this.creep.carry.energy === this.creep.carryCapacity) {
-            state = false;
-        }
-        this.creep.memory.isHarvesting = state;
-    },
+  setState(state = true) {
+    if (!this.creep.memory.isHarvesting && this.creep.carry.energy > 0) {
+      return;
+    }
+    if (this.creep.carry.energy === this.creep.carryCapacity) {
+      state = false;
+    }
+    this.creep.memory.isHarvesting = state;
+  },
 };
 
 module.exports = roleUpgrader;
