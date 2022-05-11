@@ -36,9 +36,9 @@ const omega = {
                 spawnModule.spawnsCreep('harvester', 'big', spawn.room);
             } else if (upgraders.length < 3) {
                 if (spawn.room.energyAvailable < 550) {
-                    spawnModule.spawnsCreep('upgrade', '', spawn.room);
+                    spawnModule.spawnsCreep('upgrader', '', spawn.room);
                 }
-                spawnModule.spawnsCreep('upgrade', 'medium', spawn.room);
+                spawnModule.spawnsCreep('upgrader', 'medium', spawn.room);
             } else {
                 const hostiles = spawn.room.find(FIND_HOSTILE_CREEPS);
                 if (hostiles.length !== 0) {
