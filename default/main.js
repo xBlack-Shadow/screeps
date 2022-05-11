@@ -13,35 +13,35 @@ const profiler = require('screeps.profiler');
 // This line monkey patches the global prototypes.
 profiler.enable();
 module.exports.loop = function () {
-  profiler.wrap(() => {
+    profiler.wrap(() => {
     // Main.js logic should go here.
-    switch (Game.time % 100) {
-      case 50:
-        console.log('Generating a Pixel');
-        Game.cpu.generatePixel();
-        break;
-      case 20:
-        memoryModule.clearSpawns();
-        break;
-      case 10:
-        memoryModule.clearCreeps();
-        break;
-      case 0:
-        marketModule.sell();
-        break;
-      default:
-    }
+        switch (Game.time % 100) {
+        case 50:
+            console.log('Generating a Pixel');
+            Game.cpu.generatePixel();
+            break;
+        case 20:
+            memoryModule.clearSpawns();
+            break;
+        case 10:
+            memoryModule.clearCreeps();
+            break;
+        case 0:
+            marketModule.sell();
+            break;
+        default:
+        }
 
-    memoryModule.writeSpawns();
-    memoryModule.writeRoles();
+        memoryModule.writeSpawns();
+        memoryModule.writeRoles();
 
-    logModule.log();
+        logModule.log();
 
-    colonyLasika.live();
-    colonyTherrial.live();
-    colonyOmega.live();
+        colonyLasika.live();
+        colonyTherrial.live();
+        colonyOmega.live();
 
-    aiModule.defendTowers();
-    aiModule.runCreeps();
-  });
+        aiModule.defendTowers();
+        aiModule.runCreeps();
+    });
 };
