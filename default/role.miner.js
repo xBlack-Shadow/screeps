@@ -1,4 +1,4 @@
-const roleOut = {
+const roleMiner = {
 
     /** @param {Creep} creep * */
     run(creep) {
@@ -21,12 +21,12 @@ const roleOut = {
         }
         if (!creep.memory.harvesting && creep.store[RESOURCE_CATALYST] < creep.store.getCapacity()) {
             creep.memory.harvesting = true;
-	    }
-	    if (creep.memory.harvesting && creep.carry.X === creep.carryCapacity) {
-	        creep.memory.harvesting = false;
-	    }
+        }
+        if (creep.memory.harvesting && creep.carry.X === creep.carryCapacity) {
+            creep.memory.harvesting = false;
+        }
 
-	    if (creep.memory.harvesting) {
+        if (creep.memory.harvesting) {
             const source = Game.getObjectById(creep.memory.source);
             if (creep.harvest(source) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(source);
@@ -41,4 +41,4 @@ const roleOut = {
     },
 };
 
-module.exports = roleOut;
+module.exports = roleMiner;
