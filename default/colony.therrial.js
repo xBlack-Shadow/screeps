@@ -24,7 +24,7 @@ const therrial = {
 
         const spawnModule = require('module.spawn');
         // All Creeps incl currently spawning
-        const colonyCreeps = _.filter(Game.creeps, (creep) => creep.room.name === spawn.room.name);
+        const colonyCreeps = _.filter(Game.creeps, (creep) => creep.room.name === this.room.name);
 
         Object.entries(this.population).forEach(([role, amount]) => {
             const pop = _.filter(colonyCreeps, (creep) => creep.memory.role === role);
