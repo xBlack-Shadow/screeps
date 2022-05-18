@@ -14,22 +14,22 @@ const profiler = require('screeps.profiler');
 profiler.enable();
 module.exports.loop = function () {
     profiler.wrap(() => {
-    // Main.js logic should go here.
+        // Main.js logic should go here.
         switch (Game.time % 100) {
-        case 50:
-            // console.log('Generating a Pixel');
-            // Game.cpu.generatePixel();
-            break;
-        case 20:
-            memoryModule.clearSpawns();
-            break;
-        case 10:
-            memoryModule.clearCreeps();
-            break;
-        case 0:
-            marketModule.sell();
-            break;
-        default:
+            case 50:
+                // console.log('Generating a Pixel');
+                // Game.cpu.generatePixel();
+                break;
+            case 20:
+                memoryModule.clearSpawns();
+                break;
+            case 10:
+                memoryModule.clearCreeps();
+                break;
+            case 0:
+                marketModule.sell();
+                break;
+            default:
         }
 
         memoryModule.writeSpawns();
@@ -42,7 +42,8 @@ module.exports.loop = function () {
         colonyOmega.live();
 
         aiModule.defendTowers();
-        console.log('now running creeps');
         aiModule.runCreeps();
+
+        logModule.logEnd();
     });
 };

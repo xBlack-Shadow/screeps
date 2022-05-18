@@ -3,12 +3,11 @@ const roleUpgrader = {
 
     /** @param {Creep} creep * */
     run(creep) {
-        console.log(creep.name, creep.room.name);
         this.creep = creep;
         this.setState();
-	    const controller1 = creep.room.controller;
+        const controller1 = creep.room.controller;
 
-	    if (!creep.memory.isHarvesting) {
+        if (!creep.memory.isHarvesting) {
             if (creep.upgradeController(controller1) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(controller1);
             }

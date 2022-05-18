@@ -23,6 +23,10 @@ const log = {
             }
         });
     },
+
+    logEnd() {
+        console.log('##############################################');
+    },
 };
 
 module.exports = log;

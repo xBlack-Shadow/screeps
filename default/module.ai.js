@@ -8,7 +8,7 @@ const ai = {
         const roleRampster = require('role.rampster');
         const roleScout = require('role.scout');
         const roleClaim = require('role.claimboy');
-        const roleMiner = require('default/role.miner');
+        const roleMiner = require('role.miner');
         const roleTrader = require('role.trader');
         const roleProtectron = require('role.protectron');
         const roleAmmunitioner = require('role.ammunitioner');
@@ -16,7 +16,6 @@ const ai = {
         const roleArcher = require('role.archer');
 
         for (const name in Game.creeps) {
-            console.log(name);
             const creep = Game.creeps[name];
             switch (creep.memory.role) {
                 case 'harvester':
