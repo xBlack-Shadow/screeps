@@ -1,4 +1,3 @@
-const spawnModule = require("./module.spawn");
 const therrial = {
     spawn: null,
     room: null,
