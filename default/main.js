@@ -17,8 +17,8 @@ module.exports.loop = function () {
     // Main.js logic should go here.
         switch (Game.time % 100) {
         case 50:
-            console.log('Generating a Pixel');
-            Game.cpu.generatePixel();
+            //console.log('Generating a Pixel');
+            //Game.cpu.generatePixel();
             break;
         case 20:
             memoryModule.clearSpawns();
@@ -42,6 +42,7 @@ module.exports.loop = function () {
         colonyOmega.live();
 
         aiModule.defendTowers();
+        console.log('now running creeps');
         aiModule.runCreeps();
     });
 };
