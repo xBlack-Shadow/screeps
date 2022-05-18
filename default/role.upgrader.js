@@ -1,19 +1,19 @@
-let roleUpgrader = {
+const roleUpgrader = {
     creep: null,
 
     /** @param {Creep} creep * */
     run(creep) {
-        console.log(creep.name, creep.room.name)
+        console.log(creep.name, creep.room.name);
         this.creep = creep;
         this.setState();
-	    let controller1 = creep.room.controller;
+	    const controller1 = creep.room.controller;
 
 	    if (!creep.memory.isHarvesting) {
             if (creep.upgradeController(controller1) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(controller1);
             }
         } else {
-            let sources = creep.pos.findClosestByRange(FIND_SOURCES);
+            const sources = creep.pos.findClosestByRange(FIND_SOURCES);
             if (creep.harvest(sources) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources);
             }
