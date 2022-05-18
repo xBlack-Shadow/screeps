@@ -19,7 +19,7 @@ const lasika = {
 
     live() {
         this.spawn = Game.spawns.Lasika;
-        this.room = spawn.room;
+        this.room = this.spawn.room;
         this.setMemory();
 
         const spawnModule = require('module.spawn');
