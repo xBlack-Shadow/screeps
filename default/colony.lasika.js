@@ -23,7 +23,8 @@ const lasika = {
         this.setMemory();
 
         const spawnModule = require('module.spawn');
-        const colonyCreeps = _.filter(Game.creeps, (creep) => creep.room.name === spawn.room.name); // All Creeps incl currently spawning
+        // All Creeps incl currently spawning
+        const colonyCreeps = _.filter(Game.creeps, (creep) => creep.room.name === spawn.room.name);
 
         Object.entries(this.population).forEach(([role, amount]) => {
             const pop = _.filter(colonyCreeps, (creep) => creep.memory.role === role);
@@ -40,7 +41,7 @@ const lasika = {
             this.room.find(FIND_SOURCES).forEach((element) => {
                 sources.push(element.id);
             });
-            Memory.colony = { lasika: { sources } };
+            Memory.colony = {lasika: {sources}};
         }
     },
 
